@@ -137,15 +137,6 @@ class AppController {
       </div>
     `).join('');
   }
-        <div class="washi-tape-strip -top-3 ${idx % 2 === 0 ? 'left-4 rotate-2' : 'right-4 -rotate-4'} w-14 h-4 bg-pink-300/80"></div>
-        <div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
-          <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover">
-        </div>
-        <p class="font-hand text-lg text-center text-rose-900 font-bold">${item.title}</p>
-        <span class="block text-center font-mono text-[9px] text-rose-400">${item.date}</span>
-      </div>
-    `).join('');
-  }
 
   renderLetter() {
     const container = document.getElementById('letter-content-container');
@@ -242,6 +233,25 @@ class AppController {
       });
     });
 
+    // Interactive Eye Mouse Tracking on Lock Screen
+    const lockScreen = document.getElementById('stage-lockscreen');
+    const retinaVisual = document.getElementById('retina-visual');
+    if (lockScreen && retinaVisual) {
+      lockScreen.addEventListener('mousemove', (e) => {
+        const rect = retinaVisual.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const dx = (e.clientX - centerX) / (window.innerWidth / 2);
+        const dy = (e.clientY - centerY) / (window.innerHeight / 2);
+        retinaVisual.classList.remove('anim-iris');
+        retinaVisual.style.transform = `translate(${Math.max(-14, Math.min(14, dx * 16))}px, ${Math.max(-14, Math.min(14, dy * 16))}px) scale(1.18)`;
+      });
+      lockScreen.addEventListener('mouseleave', () => {
+        retinaVisual.classList.add('anim-iris');
+        retinaVisual.style.transform = '';
+      });
+    }
+
     // Music Floating Button
     const musicBtn = document.getElementById('music-toggle-btn');
     if (musicBtn) {
@@ -258,7 +268,19 @@ class AppController {
   // ========================================================
   openCameraModal() {
     const modal = document.getElementById('camera-scan-modal');
-    if (!modal) return;
+    if (!modal) {
+      console.warn('camera-scan-modal not found');
+      return;
+    }
+
+    if (window.soundController) {
+      window.soundController.playScanBlip();
+    }
+
+    const btnText = document.getElementById('btn-scan-text');
+    if (btnText) {
+      btnText.innerText = 'SCANNING...';
+    }
 
     modal.classList.remove('hidden');
     modal.classList.add('flex');
@@ -287,6 +309,12 @@ class AppController {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
+
+    const btnText = document.getElementById('btn-scan-text');
+    if (btnText) {
+      btnText.innerText = '🔒 SCAN TO VERIFY IDENTITY';
+    }
+
     if (this.eyeTracker) {
       this.eyeTracker.stop();
     }
@@ -538,6 +566,12 @@ class AppController {
 }
 
 window.app = new AppController();
-document.addEventListener('DOMContentLoaded', () => {
+window.openCameraModal = () => {
+  if (window.app) window.app.openCameraModal();
+};
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => window.app.init());
+} else {
   window.app.init();
-});
+}

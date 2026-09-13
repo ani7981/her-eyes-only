@@ -115,27 +115,29 @@
 
         <!-- Center Column: Visual Scanner Reticle -->
         <div class="lg:col-span-6 flex flex-col items-center justify-center relative order-1 lg:order-2">
-          <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-red-500/30 flex items-center justify-center p-3">
+          <div id="reticle-container" class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-red-500/30 flex items-center justify-center p-3 hud-box-glow">
             <!-- Corner Targeting Brackets -->
             <div class="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-red-500 pointer-events-none"></div>
             <div class="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-red-500 pointer-events-none"></div>
             <div class="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-red-500 pointer-events-none"></div>
             <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-red-500 pointer-events-none"></div>
 
-            <!-- Rotating Compass Reticle -->
-            <div class="absolute inset-2 rounded-full border border-dashed border-red-500/40 reticle-spin pointer-events-none"></div>
-            <div class="absolute inset-8 rounded-full border border-red-500/20 pointer-events-none"></div>
+            <!-- Rotating Compass Reticles (Clockwise & Counter-Clockwise) -->
+            <div class="absolute inset-2 rounded-full border border-dashed border-red-500/50 reticle-spin pointer-events-none"></div>
+            <div class="absolute inset-8 rounded-full border border-dashed border-red-500/30 reticle-spin-reverse pointer-events-none"></div>
 
             <!-- Crosshairs -->
             <div class="absolute inset-x-0 top-1/2 h-[1px] bg-red-500/30 pointer-events-none"></div>
             <div class="absolute inset-y-0 left-1/2 w-[1px] bg-red-500/30 pointer-events-none"></div>
 
-            <!-- Central Iris Display Frame -->
-            <div class="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-2 border-red-500/80 bg-neutral-900 shadow-inner flex items-center justify-center">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtVX1dW5FLSoGkLoydN7nsoJBkuU2LOaYQ7A8CqiFAhTgFII7-UCJ0E08tq1y1t2EV2F7c3qSK44Vtgt5QFUZLN3o_0MtkELU2Ej_IjYX4N2CvhqD75JiUR5eUPBmYltQw6NaGCV6WOi4m1lcT9RLQUKT8sGkeU4vbAjnLjCNH1Y_-cEAec_WtP3DqFHd0tSZvObC_KhGzMpakTw6ddBrK3ou6iY9q8lxgh11hWPIeb-LoJ6XoymheMCJ8-x3E-RcpARkn5emHHwVISLQ" alt="Retinal biometric scanner" class="w-full h-full object-cover rounded-full mix-blend-screen opacity-90 scale-110">
+            <!-- Central Iris Display Frame with Animated Living Eye -->
+            <div id="scanner-core" class="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-2 border-red-500/80 bg-neutral-900 shadow-inner flex items-center justify-center">
+              <div id="retina-visual" class="w-full h-full relative flex items-center justify-center overflow-hidden rounded-full anim-iris transition-transform duration-200">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtVX1dW5FLSoGkLoydN7nsoJBkuU2LOaYQ7A8CqiFAhTgFII7-UCJ0E08tq1y1t2EV2F7c3qSK44Vtgt5QFUZLN3o_0MtkELU2Ej_IjYX4N2CvhqD75JiUR5eUPBmYltQw6NaGCV6WOi4m1lcT9RLQUKT8sGkeU4vbAjnLjCNH1Y_-cEAec_WtP3DqFHd0tSZvObC_KhGzMpakTw6ddBrK3ou6iY9q8lxgh11hWPIeb-LoJ6XoymheMCJ8-x3E-RcpARkn5emHHwVISLQ" alt="Retinal biometric scanner" class="w-full h-full object-cover rounded-full mix-blend-screen opacity-95 pointer-events-none">
+              </div>
               
-              <!-- Animated Laser Beam -->
-              <div class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent scan-beam"></div>
+              <!-- Animated Laser Beam Sweeping Across Eye -->
+              <div id="laser-beam" class="scan-beam pointer-events-none z-10"></div>
             </div>
           </div>
 
@@ -143,7 +145,7 @@
           <div class="mt-4 flex items-center gap-4 text-[11px] font-mono text-neutral-400">
             <span>DATABASE: <span class="text-red-400">HER_EYES_ONLY</span></span>
             <span>•</span>
-            <span>BIOMETRIC: <span class="text-yellow-400">STANDBY</span></span>
+            <span>PUPIL_LOCK: <span class="text-emerald-400 font-bold">ACTIVE</span></span>
           </div>
         </div>
 
@@ -160,7 +162,7 @@
             </div>
             <div>
               <span class="text-neutral-500 block text-[10px]">CLEARANCE STATUS:</span>
-              <span class="text-red-400 font-bold animate-pulse">LOCKED // AWAITING SCAN</span>
+              <span id="terminal-clearance-status" class="text-red-400 font-bold animate-pulse">LOCKED // AWAITING SCAN</span>
             </div>
           </div>
 
@@ -180,11 +182,11 @@
 
         <div class="flex items-center gap-3 w-full sm:w-auto">
           <!-- Primary Trigger Button: SCAN TO VERIFY -->
-          <button id="btn-scan-trigger" type="button" class="w-full sm:w-auto px-8 py-3 rounded bg-red-950/90 border border-red-500 hover:bg-red-900 text-red-100 hover:text-white font-mono text-sm tracking-widest uppercase transition-all duration-300 active:scale-95 flex items-center justify-center gap-2.5 shadow-[0_0_20px_rgba(255,26,61,0.3)] hover:shadow-[0_0_35px_rgba(255,26,61,0.6)] cursor-pointer">
+          <button id="btn-scan-trigger" onclick="app.openCameraModal()" type="button" class="w-full sm:w-auto px-8 py-3 rounded bg-red-950/90 border border-red-500 hover:bg-red-900 text-red-100 hover:text-white font-mono text-sm tracking-widest uppercase transition-all duration-300 active:scale-95 flex items-center justify-center gap-2.5 shadow-[0_0_20px_rgba(255,26,61,0.3)] hover:shadow-[0_0_35px_rgba(255,26,61,0.6)] cursor-pointer">
             <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
               <path clip-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm2 6V6a2 2 0 10-4 0v2h4z" fill-rule="evenodd"></path>
             </svg>
-            <span>🔒 SCAN TO VERIFY IDENTITY</span>
+            <span id="btn-scan-text">🔒 SCAN TO VERIFY IDENTITY</span>
           </button>
         </div>
       </div>

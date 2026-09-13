@@ -11,12 +11,18 @@
 
 /* Sci-fi Scanline Animation */
 @keyframes scan-laser {
-  0% { top: 4%; opacity: 0.85; }
-  50% { top: 92%; opacity: 1; }
-  100% { top: 4%; opacity: 0.85; }
+  0% { top: 6%; opacity: 0.85; }
+  50% { top: 88%; opacity: 1; }
+  100% { top: 6%; opacity: 0.85; }
 }
 
 .scan-beam {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #ff1a3d 25%, #ffffff 50%, #ff1a3d 75%, transparent 100%);
+  box-shadow: 0 0 14px #ff1a3d, 0 0 28px rgba(255, 26, 61, 0.95);
   animation: scan-laser 2.2s ease-in-out infinite;
 }
 
@@ -30,13 +36,50 @@
   animation: radar-sweep 16s linear infinite;
 }
 
-/* Terminal Glow Effects */
-.hud-glow-red {
-  text-shadow: 0 0 10px rgba(255, 26, 61, 0.8), 0 0 20px rgba(255, 26, 61, 0.4);
+.reticle-spin-reverse {
+  animation: radar-sweep 11s linear infinite reverse;
 }
 
-.hud-glow-green {
-  text-shadow: 0 0 10px rgba(0, 255, 102, 0.8), 0 0 20px rgba(0, 255, 102, 0.4);
+/* Iris Eye Gaze & Dilation Animations */
+@keyframes iris-gaze {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.15);
+  }
+  20% {
+    transform: translate(-7px, 3px) scale(1.22);
+  }
+  45% {
+    transform: translate(6px, -4px) scale(1.14);
+  }
+  70% {
+    transform: translate(-4px, -5px) scale(1.2);
+  }
+  85% {
+    transform: translate(5px, 4px) scale(1.16);
+  }
+}
+
+.anim-iris {
+  animation: iris-gaze 5.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 15px rgba(255, 26, 61, 0.4), inset 0 0 15px rgba(255, 26, 61, 0.2); }
+  50% { box-shadow: 0 0 35px rgba(255, 26, 61, 0.8), inset 0 0 30px rgba(255, 26, 61, 0.4); }
+}
+
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.6); }
+  50% { box-shadow: 0 0 45px rgba(34, 197, 94, 0.95); }
+}
+
+.hud-box-glow {
+  animation: pulse-red 3s infinite ease-in-out;
+}
+
+.hud-box-success {
+  animation: pulse-green 1.5s infinite ease-in-out;
 }
 
 /* Glitch Animation for Access Denied */

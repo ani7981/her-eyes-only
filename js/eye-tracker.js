@@ -74,7 +74,17 @@ class EyeTracker {
 
     this.stream = await navigator.mediaDevices.getUserMedia(constraints);
     this.video.srcObject = this.stream;
-    await this.video.play();
+    
+    await new Promise((resolve) => {
+      if (this.video.readyState >= 2) {
+        this.video.play().then(resolve).catch(resolve);
+      } else {
+        this.video.onloadedmetadata = () => {
+          this.video.play().then(resolve).catch(resolve);
+        };
+        setTimeout(resolve, 1200);
+      }
+    });
 
     // Match canvas dimensions to video feed
     this.updateCanvasSize();
@@ -82,9 +92,9 @@ class EyeTracker {
   }
 
   updateCanvasSize() {
-    if (!this.video || !this.canvas) return;
-    const w = this.video.videoWidth || this.video.clientWidth || 640;
-    const h = this.video.videoHeight || this.video.clientHeight || 480;
+    if (!this.canvas) return;
+    const w = (this.video && (this.video.videoWidth || this.video.clientWidth)) || this.canvas.clientWidth || 640;
+    const h = (this.video && (this.video.videoHeight || this.video.clientHeight)) || this.canvas.clientHeight || 480;
     this.canvas.width = w;
     this.canvas.height = h;
   }
@@ -460,6 +470,16 @@ class EyeTracker {
 
       const leftPupil = { x: leftBox.x + leftBox.width / 2, y: leftBox.y + leftBox.height / 2 };
       const rightPupil = { x: rightBox.x + rightBox.width / 2, y: rightBox.y + rightBox.height / 2 };
+
+      // Subtle biometric face wireframe
+      this.ctx.save();
+      this.ctx.strokeStyle = 'rgba(0, 255, 102, 0.18)';
+      this.ctx.lineWidth = 1;
+      this.ctx.setLineDash([6, 6]);
+      this.ctx.beginPath();
+      this.ctx.ellipse(centerX, centerY, eyeSpacing * 0.95, boxH * 2.5, 0, 0, Math.PI * 2);
+      this.ctx.stroke();
+      this.ctx.restore();
 
       // Draw Green Eye Targeting Boxes
       this.drawEyeTargetingBox(leftBox, leftPupil, 'L_EYE // RETINAL_LOCK', true);
