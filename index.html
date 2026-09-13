@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Her Eyes Only — Clearance Level 1-Year Anniversary</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Marck+Script&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Shadows+Into+Light&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS v3 with custom extensions -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hud: {
+              red: '#ff1a3d',
+              green: '#00ff66',
+              emerald: '#22c55e',
+              dark: '#08080a',
+              card: '#0e0f14',
+              border: '#2a1117'
+            },
+            'rose-craft': '#f3bcc8',
+            'craft-bg': '#ebb0be',
+            'paper-sheet': '#fffbf5',
+            'crimson-ink': '#9e1c3a',
+            'crimson-deep': '#80132b',
+            'rose-accent': '#d43d63',
+            'pastel-pink': '#e8748d',
+            'pastel-deepPink': '#b83b5e'
+          },
+          fontFamily: {
+            mono: ['"Share Tech Mono"', 'monospace'],
+            sans: ['"Inter"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+            script: ['"Marck Script"', '"Dancing Script"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+            bodySerif: ['"Lora"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- External Libraries: MediaPipe FaceMesh & Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#08080a] text-slate-100 font-sans antialiased select-none min-h-screen relative overflow-x-hidden">
+
+  <!-- ========================================================================================= -->
+  <!-- STAGE 1 — LOCK SCREEN (SECRET AGENT THEME)                                               -->
+  <!-- ========================================================================================= -->
+  <div id="stage-lockscreen" class="relative min-h-screen w-full flex flex-col items-center justify-center p-4 crt-grid transition-opacity duration-700">
+    
+    <!-- Spy HUD Terminal Box -->
+    <div id="hud-terminal-box" class="relative w-full max-w-5xl bg-neutral-950/90 border border-red-900/60 rounded-xl p-6 sm:p-10 backdrop-blur-xl overflow-hidden shadow-[0_0_50px_rgba(255,26,61,0.25)]">
+      
+      <!-- Tech HUD Corner Markers -->
+      <div class="absolute top-2.5 left-2.5 w-4 h-4 border-t-2 border-l-2 border-red-500 pointer-events-none"></div>
+      <div class="absolute top-2.5 right-2.5 w-4 h-4 border-t-2 border-r-2 border-red-500 pointer-events-none"></div>
+      <div class="absolute bottom-2.5 left-2.5 w-4 h-4 border-b-2 border-l-2 border-red-500 pointer-events-none"></div>
+      <div class="absolute bottom-2.5 right-2.5 w-4 h-4 border-b-2 border-r-2 border-red-500 pointer-events-none"></div>
+
+      <!-- Header Row with Top Secret & Restricted Badge -->
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-red-900/40 pb-6 mb-8">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-mono font-bold tracking-wider text-red-500 flex items-center gap-3">
+            <span class="inline-block w-3 h-3 bg-red-500 rounded-sm animate-pulse"></span>
+            TOP SECRET
+          </h1>
+          <p class="text-xs sm:text-sm font-mono tracking-widest text-red-400/90 mt-1 uppercase">
+            CLEARANCE LEVEL — 1-YEAR ANNIVERSARY
+          </p>
+          <p id="hud-subtext" class="text-xs font-mono text-neutral-400 mt-0.5">
+            Biometric verification required: Her Eyes Only.
+          </p>
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-red-950/70 border border-red-500/80 rounded-sm text-red-400 font-mono text-xs uppercase tracking-wider self-start">
+          <svg class="w-3.5 h-3.5 text-red-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+            <path clip-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm2 6V6a2 2 0 10-4 0v2h4z" fill-rule="evenodd"></path>
+          </svg>
+          <span>ACCESS RESTRICTED</span>
+        </div>
+      </div>
+
+      <!-- Main Center Grid: Terminal Logs + Iris Scanner Graphics + Status Indicators -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Column: Protocol Telemetry Logs -->
+        <div class="lg:col-span-3 font-mono text-xs text-neutral-400 space-y-3 order-2 lg:order-1">
+          <div class="text-red-500/80 font-bold border-b border-red-950/80 pb-1 flex items-center justify-between">
+            <span>PROTOCOL_LOG</span>
+            <span class="text-[10px] text-neutral-500">SYS_V1</span>
+          </div>
+          <p class="text-neutral-500">> SYS_INIT: OK</p>
+          <p class="text-red-400/90">> READY FOR FACIAL SCAN</p>
+          <p class="text-neutral-400">> RETINAL MATCH ENGINE: ONLINE</p>
+          <p class="text-neutral-500">> AWAITING BIOMETRIC FEED</p>
+          <div class="text-neutral-400 pt-2 font-mono text-[11px] leading-relaxed border-t border-neutral-900">
+            <span class="text-yellow-400 font-bold">> STATUS: STANDBY</span><br>
+            Please click scan to activate camera and verify clearance.
+          </div>
+        </div>
+
+        <!-- Center Column: Visual Scanner Reticle -->
+        <div class="lg:col-span-6 flex flex-col items-center justify-center relative order-1 lg:order-2">
+          <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-red-500/30 flex items-center justify-center p-3">
+            <!-- Corner Targeting Brackets -->
+            <div class="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-red-500 pointer-events-none"></div>
+            <div class="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-red-500 pointer-events-none"></div>
+            <div class="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-red-500 pointer-events-none"></div>
+            <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-red-500 pointer-events-none"></div>
+
+            <!-- Rotating Compass Reticle -->
+            <div class="absolute inset-2 rounded-full border border-dashed border-red-500/40 reticle-spin pointer-events-none"></div>
+            <div class="absolute inset-8 rounded-full border border-red-500/20 pointer-events-none"></div>
+
+            <!-- Crosshairs -->
+            <div class="absolute inset-x-0 top-1/2 h-[1px] bg-red-500/30 pointer-events-none"></div>
+            <div class="absolute inset-y-0 left-1/2 w-[1px] bg-red-500/30 pointer-events-none"></div>
+
+            <!-- Central Iris Display Frame -->
+            <div class="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-2 border-red-500/80 bg-neutral-900 shadow-inner flex items-center justify-center">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtVX1dW5FLSoGkLoydN7nsoJBkuU2LOaYQ7A8CqiFAhTgFII7-UCJ0E08tq1y1t2EV2F7c3qSK44Vtgt5QFUZLN3o_0MtkELU2Ej_IjYX4N2CvhqD75JiUR5eUPBmYltQw6NaGCV6WOi4m1lcT9RLQUKT8sGkeU4vbAjnLjCNH1Y_-cEAec_WtP3DqFHd0tSZvObC_KhGzMpakTw6ddBrK3ou6iY9q8lxgh11hWPIeb-LoJ6XoymheMCJ8-x3E-RcpARkn5emHHwVISLQ" alt="Retinal biometric scanner" class="w-full h-full object-cover rounded-full mix-blend-screen opacity-90 scale-110">
+              
+              <!-- Animated Laser Beam -->
+              <div class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent scan-beam"></div>
+            </div>
+          </div>
+
+          <!-- Real-Time Telemetry Data -->
+          <div class="mt-4 flex items-center gap-4 text-[11px] font-mono text-neutral-400">
+            <span>DATABASE: <span class="text-red-400">HER_EYES_ONLY</span></span>
+            <span>•</span>
+            <span>BIOMETRIC: <span class="text-yellow-400">STANDBY</span></span>
+          </div>
+        </div>
+
+        <!-- Right Column: Clearance Metadata -->
+        <div class="lg:col-span-3 font-mono text-xs text-neutral-400 space-y-3 order-3">
+          <div class="border border-red-950/80 bg-red-950/20 p-3.5 rounded space-y-2.5">
+            <div>
+              <span class="text-neutral-500 block text-[10px]">TARGET SUBJECT:</span>
+              <span class="text-red-300 font-bold">HER_EYES_ONLY</span>
+            </div>
+            <div>
+              <span class="text-neutral-500 block text-[10px]">MISSION DURATION:</span>
+              <span class="text-yellow-300 font-bold">365 DAYS & FOREVER</span>
+            </div>
+            <div>
+              <span class="text-neutral-500 block text-[10px]">CLEARANCE STATUS:</span>
+              <span class="text-red-400 font-bold animate-pulse">LOCKED // AWAITING SCAN</span>
+            </div>
+          </div>
+
+          <div class="p-3 bg-neutral-900/60 border border-neutral-800 rounded text-neutral-400 text-[11px] leading-relaxed font-mono">
+            <span class="text-red-400 font-bold">SECURITY NOTICE:</span><br>
+            Only the authentic eyes of the designated partner will decrypt the anniversary archive.
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Interactive Controls & Spy Verification Buttons -->
+      <div class="mt-10 pt-6 border-t border-red-950/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="text-xs font-mono text-neutral-500 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-500 inline-block animate-ping"></span>
+          <span>SECURE TERMINAL v1.0.0 // HER_EYES_ONLY</span>
+        </div>
+
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <!-- Primary Trigger Button: SCAN TO VERIFY -->
+          <button id="btn-scan-trigger" type="button" class="w-full sm:w-auto px-8 py-3 rounded bg-red-950/90 border border-red-500 hover:bg-red-900 text-red-100 hover:text-white font-mono text-sm tracking-widest uppercase transition-all duration-300 active:scale-95 flex items-center justify-center gap-2.5 shadow-[0_0_20px_rgba(255,26,61,0.3)] hover:shadow-[0_0_35px_rgba(255,26,61,0.6)] cursor-pointer">
+            <svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+              <path clip-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm2 6V6a2 2 0 10-4 0v2h4z" fill-rule="evenodd"></path>
+            </svg>
+            <span>🔒 SCAN TO VERIFY IDENTITY</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================================= -->
+  <!-- STAGE 2 — CAMERA SCAN MODAL & REAL-TIME EYE TRACKING (HER EYES ONLY)                     -->
+  <!-- ========================================================================================= -->
+  <div id="camera-scan-modal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    
+    <div id="scanner-viewfinder-frame" class="relative w-full max-w-3xl bg-neutral-950 border border-red-500/80 rounded-2xl p-4 sm:p-6 shadow-[0_0_80px_rgba(255,26,61,0.35)] overflow-hidden transition-all duration-500">
+      
+      <!-- Top HUD Header with Live Indicator & Close Button -->
+      <div class="flex items-center justify-between border-b border-neutral-800 pb-3 mb-4">
+        <div class="flex items-center gap-3">
+          <span class="flex h-3 w-3 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+          </span>
+          <span class="font-mono text-xs sm:text-sm font-bold text-red-400 tracking-wider">
+            CLEARANCE SCAN // HER EYES ONLY
+          </span>
+        </div>
+
+        <div class="flex items-center gap-2 font-mono text-xs text-neutral-400">
+          <span class="px-2 py-0.5 bg-neutral-900 border border-neutral-700 rounded text-[10px]">FACIAL_HUD_V2</span>
+          <button id="btn-close-scanner" type="button" class="text-neutral-400 hover:text-white p-1 hover:bg-neutral-800 rounded transition-colors text-lg leading-none cursor-pointer">✕</button>
+        </div>
+      </div>
+
+      <!-- Main Camera Viewfinder View with Canvas Overlay -->
+      <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] bg-black rounded-xl overflow-hidden border border-neutral-800 shadow-inner flex items-center justify-center">
+        
+        <!-- Webcam Video (Mirrored for natural mirror-like eye contact) -->
+        <video id="scanner-video" class="w-full h-full object-cover transform -scale-x-100" autoplay playsinline muted></video>
+
+        <!-- Eye Tracking Canvas: Renders Neon Green Rectangles Around Her Eyes -->
+        <canvas id="scanner-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+        <!-- HUD Laser Scanning Line Sweep -->
+        <div class="absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#00ff66] to-transparent scan-beam z-20 pointer-events-none opacity-80"></div>
+
+        <!-- Viewfinder Corner HUD Target Brackets -->
+        <div class="absolute top-3 left-3 w-6 h-6 border-t-2 border-l-2 border-red-500/80 z-20 pointer-events-none"></div>
+        <div class="absolute top-3 right-3 w-6 h-6 border-t-2 border-r-2 border-red-500/80 z-20 pointer-events-none"></div>
+        <div class="absolute bottom-3 left-3 w-6 h-6 border-b-2 border-l-2 border-red-500/80 z-20 pointer-events-none"></div>
+        <div class="absolute bottom-3 right-3 w-6 h-6 border-b-2 border-r-2 border-red-500/80 z-20 pointer-events-none"></div>
+
+        <!-- Real-Time Telemetry Coordinates Floating In Frame -->
+        <div class="absolute top-4 left-4 z-20 font-mono text-[10px] text-[#00ff66] bg-black/60 px-2 py-1 rounded backdrop-blur-xs space-y-0.5 border border-[#00ff66]/30">
+          <div>L_IRIS: <span id="telemetry-coord-left">[SCANNING]</span></div>
+          <div>R_IRIS: <span id="telemetry-coord-right">[SCANNING]</span></div>
+          <div>CONFIDENCE: <span id="telemetry-confidence">0.00%</span></div>
+        </div>
+
+        <!-- SUCCESS OVERLAY (Triggered on 100% Match) -->
+        <div id="modal-success-alert" class="absolute inset-0 bg-emerald-950/90 backdrop-blur-md flex flex-col items-center justify-center z-30 hidden animate-fadeIn text-center p-6">
+          <div class="w-20 h-20 rounded-full border-3 border-emerald-400 bg-emerald-900/40 flex items-center justify-center text-emerald-400 mb-3 shadow-[0_0_40px_rgba(52,211,153,0.8)]">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h2 class="font-mono text-xl sm:text-2xl font-bold text-emerald-300 tracking-wider">
+            ✅ BIOMETRIC MATCH
+          </h2>
+          <p class="font-hand text-2xl sm:text-3xl text-emerald-200 mt-2">
+            Welcome, gorgeous.
+          </p>
+          <p class="font-mono text-xs text-emerald-400/90 mt-1 uppercase tracking-widest">
+            Decrypting 365 days anniversary archive...
+          </p>
+        </div>
+
+        <!-- FAILURE / DENIED ALERT BOX -->
+        <div id="modal-denied-alert" class="absolute inset-0 bg-red-950/95 backdrop-blur-md flex flex-col items-center justify-center z-30 hidden animate-fadeIn text-center p-6">
+          <div class="w-16 h-16 rounded-full border-2 border-red-500 bg-red-900/40 flex items-center justify-center text-red-500 mb-3 shadow-[0_0_30px_rgba(239,68,68,0.7)] text-3xl">
+            ✕
+          </div>
+          <h2 class="font-mono text-lg sm:text-xl font-bold text-red-400 tracking-wider">
+            ❌ ACCESS DENIED
+          </h2>
+          <p class="font-mono text-sm sm:text-base text-red-200 mt-2 max-w-md">
+            Nice try, stranger! But you are not the love of his life.
+          </p>
+          <button id="btn-try-again" type="button" class="mt-5 px-6 py-2 rounded bg-red-900 border border-red-500 hover:bg-red-800 text-white font-mono text-xs tracking-wider uppercase transition-all active:scale-95 cursor-pointer">
+            TRY AGAIN
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Scanner Telemetry & Verification Progress Bar -->
+      <div class="mt-4 space-y-2">
+        <div class="flex items-center justify-between text-xs font-mono">
+          <span id="telemetry-status-text" class="text-yellow-400 font-bold">
+            ALIGN EYES WITH RECTANGLES
+          </span>
+          <span class="text-neutral-400 font-mono">
+            MATCH PROGRESS: <span id="scan-progress-percent" class="text-[#00ff66] font-bold">0%</span>
+          </span>
+        </div>
+
+        <!-- Progress Bar Track -->
+        <div class="w-full h-2 bg-neutral-900 rounded-full overflow-hidden border border-neutral-800">
+          <div id="scan-progress-bar" class="h-full bg-gradient-to-r from-yellow-500 via-[#00ff66] to-emerald-400 transition-all duration-150 w-0"></div>
+        </div>
+      </div>
+
+      <!-- Bottom Interactive HUD Options -->
+      <div class="mt-5 pt-4 border-t border-neutral-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+        <div class="text-neutral-500">
+          * Look directly at camera to lock green eye reticles.
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Simulation Test Buttons -->
+          <button id="btn-test-denied" type="button" class="px-3 py-1.5 rounded bg-neutral-900 hover:bg-red-950/70 border border-neutral-700 hover:border-red-500 text-neutral-400 hover:text-red-300 transition-colors cursor-pointer" title="Test the humorous Access Denied failure state">
+            Test Unauthorized Access
+          </button>
+          
+          <button id="btn-bypass-verify" type="button" class="px-3 py-1.5 rounded bg-neutral-900 hover:bg-emerald-950/70 border border-neutral-700 hover:border-emerald-500 text-neutral-400 hover:text-emerald-300 transition-colors cursor-pointer" title="Instant match in low light or without camera">
+            Bypass / Instant Verify
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================================= -->
+  <!-- STAGE 3 — THE REVEAL (TACTILE PINK ROMANTIC SCRAPBOOK CONTINUOUS SCROLLING PAGE)          -->
+  <!-- ========================================================================================= -->
+  <div id="stage-scrapbook" class="min-h-screen scrapbook-bg text-rose-950 pb-24 hidden transition-opacity duration-1000 font-bodySerif selection:bg-rose-300 selection:text-rose-950">
+    
+    <!-- Top Floating Ambient Music Widget Bar -->
+    <header class="sticky top-0 z-40 bg-[#fce4ec]/90 backdrop-blur-md border-b border-rose-200/90 shadow-sm px-4 py-2.5">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2 font-hand text-xl font-bold text-crimson-ink">
+          <span class="text-rose-500">♡</span>
+          <span>Her Eyes Only • 1-Year Anniversary</span>
+        </div>
+
+        <!-- Music Controller Button -->
+        <button id="music-toggle-btn" type="button" class="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white border border-rose-200 shadow-sm hover:bg-rose-50 text-crimson-ink font-hand text-sm font-semibold transition-all cursor-pointer">
+          <div class="flex items-end gap-0.5 h-3.5 w-4">
+            <span class="music-wave-bar w-1 bg-rose-500 rounded-full h-1"></span>
+            <span class="music-wave-bar w-1 bg-rose-600 rounded-full h-1"></span>
+            <span class="music-wave-bar w-1 bg-rose-500 rounded-full h-1"></span>
+          </div>
+          <span id="music-status-text">Playing our melody ♡</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="relative max-w-7xl mx-auto flex flex-col md:flex-row min-h-screen pt-4">
+      
+      <!-- Sticky Scrapbook Navigation Sidebar -->
+      <aside class="w-full md:w-28 md:sticky md:top-16 md:h-[calc(100vh-4rem)] flex md:flex-col items-center justify-center md:justify-start pt-2 md:pt-8 px-3 z-30">
+        <nav aria-label="Scrapbook Sections" class="flex md:flex-col items-center gap-3 bg-[#fce4ec]/95 backdrop-blur-md p-2 md:py-6 md:px-2 rounded-3xl border border-rose-200/90 shadow-xl shadow-rose-900/10">
+          <!-- Home Link -->
+          <a href="#home-section" class="flex flex-col items-center justify-center w-13 h-13 rounded-2xl bg-gradient-to-br from-[#e4426b] to-[#b91c44] text-white shadow-md shadow-rose-800/20 transition-all duration-200">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span class="text-[10px] font-hand font-bold tracking-wide mt-0.5">Home</span>
+          </a>
+
+          <!-- Timeline Link -->
+          <a href="#timeline-section" class="flex flex-col items-center justify-center w-13 h-13 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200">
+            <svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Timeline</span>
+          </a>
+
+          <!-- Gallery Link -->
+          <a href="#gallery-section" class="flex flex-col items-center justify-center w-13 h-13 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200">
+            <svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Gallery</span>
+          </a>
+
+          <!-- Letter Link -->
+          <a href="#letter-section" class="flex flex-col items-center justify-center w-13 h-13 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200">
+            <svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            <span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Letter</span>
+          </a>
+        </nav>
+      </aside>
+
+      <!-- Main Continuous Scrolling Canvas -->
+      <main class="flex-1 px-4 sm:px-8 py-4 space-y-28">
+
+        <!-- ======================================================== -->
+        <!-- SECTION 1: HERO & LIVE ANNIVERSARY COUNTER               -->
+        <!-- ======================================================== -->
+        <section id="home-section" class="relative pt-4 scroll-mt-20">
+          
+          <!-- Background Collage Layers: Newspaper & Distressed Papers -->
+          <div class="absolute -top-6 -left-6 w-40 h-28 newspaper-scrap -rotate-6 rounded-sm opacity-60 pointer-events-none p-2 text-[9px] hidden sm:block">
+            THE DAILY ROMANCE • SPECIAL EDITION • CHAPTER 1<br>
+            All memories recorded with endless joy and gentle laughter...
+          </div>
+          <div class="absolute -bottom-6 right-10 w-44 h-24 newspaper-scrap rotate-3 rounded-sm opacity-50 pointer-events-none p-2 text-[8px] hidden sm:block">
+            EVERYDAY MOMENTS • 365 DAYS RECORD<br>
+            The story that keeps unfolding every single morning...
+          </div>
+
+          <!-- Scattered Doodle Hearts -->
+          <div class="absolute -top-3 right-1/4 text-rose-600/60 font-hand text-3xl select-none anim-float">♡</div>
+          <div class="absolute top-1/2 left-2 text-rose-500/50 font-hand text-4xl select-none -rotate-12">♡</div>
+          <div class="absolute -bottom-4 right-1/3 text-rose-600/70 font-hand text-2xl select-none">♡</div>
+
+          <!-- Large Center Torn Craft Paper Sheet -->
+          <div class="torn-deckle p-8 sm:p-12 lg:p-14 border border-rose-200/80 relative overflow-visible">
+            
+            <!-- Top Washi Tape Accents -->
+            <div class="washi-tape-strip -top-3.5 left-1/3 w-36 h-6 -rotate-1"></div>
+            <div class="washi-gold -top-3 right-20 w-28 h-5 rotate-2"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              
+              <!-- Left Content Column -->
+              <div class="lg:col-span-7 space-y-6 text-center lg:text-left z-10">
+                <div class="relative inline-block">
+                  <h1 id="scrapbook-hero-title" class="text-6xl sm:text-7xl md:text-8xl text-crimson-ink font-bold tracking-tight leading-none script-title">
+                    365 Days
+                    <span class="block text-5xl sm:text-6xl md:text-7xl text-crimson-deep mt-1">
+                      of Us <span class="text-rose-600 inline-block font-hand -rotate-6">♡</span>
+                    </span>
+                  </h1>
+                </div>
+
+                <p id="scrapbook-hero-subtitle" class="font-hand text-2xl sm:text-3xl text-rose-900/90 leading-snug">
+                  One year down. Still my favorite story.
+                </p>
+
+                <!-- LIVE TICKING COUNTER WIDGET (Days, Hours, Minutes, Seconds) -->
+                <div class="relative inline-block bg-[#fffdfa] border border-rose-200/90 rounded-2xl p-5 sm:p-6 shadow-md -rotate-1 hover:rotate-0 transition-transform w-full max-w-lg">
+                  <div class="washi-tape-strip -top-3 right-4 w-24 h-5 rotate-3 bg-[#f8bfce]"></div>
+                  
+                  <div class="grid grid-cols-4 gap-2 sm:gap-4 text-center items-center">
+                    <div>
+                      <span id="counter-days" class="font-serif text-3xl sm:text-5xl font-bold text-crimson-ink block leading-none">365</span>
+                      <span class="font-hand text-xs sm:text-base text-rose-700 font-semibold mt-1 block">days</span>
+                    </div>
+                    <div class="border-l border-rose-200 pl-2 sm:pl-4">
+                      <span id="counter-hours" class="font-serif text-3xl sm:text-5xl font-bold text-crimson-ink block leading-none">00</span>
+                      <span class="font-hand text-xs sm:text-base text-rose-700 font-semibold mt-1 block">hours</span>
+                    </div>
+                    <div class="border-l border-rose-200 pl-2 sm:pl-4">
+                      <span id="counter-minutes" class="font-serif text-3xl sm:text-5xl font-bold text-crimson-ink block leading-none">00</span>
+                      <span class="font-hand text-xs sm:text-base text-rose-700 font-semibold mt-1 block">minutes</span>
+                    </div>
+                    <div class="border-l border-rose-200 pl-2 sm:pl-4">
+                      <span id="counter-seconds" class="font-serif text-3xl sm:text-5xl font-bold text-crimson-ink block leading-none">00</span>
+                      <span class="font-hand text-xs sm:text-base text-rose-700 font-semibold mt-1 block">seconds</span>
+                    </div>
+                  </div>
+
+                  <div class="text-center mt-3 pt-2 border-t border-rose-100">
+                    <span class="font-hand text-2xl sm:text-3xl text-rose-600 font-bold tracking-wide">together ♡</span>
+                  </div>
+                </div>
+
+                <!-- Scroll down prompt -->
+                <div class="pt-2 flex items-center justify-center lg:justify-start gap-2 text-rose-700/80 font-hand text-lg">
+                  <span>scroll to begin our story</span>
+                  <span class="animate-bounce">↓</span>
+                </div>
+              </div>
+
+              <!-- Right Column: Big Tilted Polaroid & Sticky Note -->
+              <div class="lg:col-span-5 flex justify-center relative">
+                <!-- Tilted Polaroid -->
+                <div class="polaroid-frame relative p-4 pb-7 rounded-sm rotate-3 max-w-xs sm:max-w-sm w-full border border-stone-200">
+                  <div class="washi-tape-strip -top-3.5 left-10 w-24 h-6 -rotate-2"></div>
+                  <div class="washi-tape-strip -top-2 right-8 w-16 h-5 rotate-6 bg-pink-300/60"></div>
+
+                  <div class="aspect-[4/5] overflow-hidden bg-rose-100 relative rounded-xs">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDts8Xipc0dvShbKoWskE8NFNefCizu8bzz6jUlDka9GiLAFxQ1NqGtobIZdQ9SkJt-etJcCai5UvawbKVC55Z_Vo8zNQlWAMD_Tvk3EEcpGf2IMiIm0WrF7_MbfwozbKu91Gxt62FYWnlrZEygQyPXctfKT6dctthtpA3B3QrN0DIPHkbs2FG02NuUFo9db_uKzN6gQba3DEYQUi9nJZA2XUZUkC4ijl3LzA4sxpg2-YuII1rd_z3jKQ" alt="Couple anniversary sunset" class="w-full h-full object-cover">
+                  </div>
+
+                  <div class="mt-3 text-center">
+                    <p class="font-hand text-2xl text-rose-900 font-bold leading-tight">Our favorite evening together</p>
+                    <p class="font-mono text-[10px] text-rose-400 uppercase tracking-widest mt-0.5">GOLDEN HOUR MEMORIES</p>
+                  </div>
+
+                  <!-- Round "YOU + ME" Craft Stamp -->
+                  <div class="absolute -bottom-5 -right-4 w-16 h-16 rounded-full border-2 border-dashed border-crimson-ink bg-[#fff3f6] flex flex-col items-center justify-center text-crimson-ink font-hand text-xs font-bold rotate-12 shadow-md">
+                    <span>YOU</span>
+                    <span class="text-[10px] leading-none">+</span>
+                    <span>ME</span>
+                  </div>
+                </div>
+
+                <!-- Sticky Note Overlay -->
+                <div class="absolute -bottom-8 -left-4 sm:-left-8 bg-[#fff5f7] border border-rose-300 rounded-lg p-3 shadow-md -rotate-6 max-w-[190px] font-hand text-crimson-ink text-sm leading-tight select-none">
+                  <div class="washi-tape-strip -top-2 left-6 w-12 h-4 bg-[#f8bfce] -rotate-2"></div>
+                  <span id="scrapbook-sticky-note">"Not just 365 days... but a lifetime to go ♡"</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- SECTION 2: TIMELINE ("Our Journey ♡")                     -->
+        <!-- ======================================================== -->
+        <section id="timeline-section" class="relative scroll-mt-20">
+          <div class="torn-deckle p-8 sm:p-12 lg:p-16 border border-rose-200/80 relative">
+            <div class="washi-tape-strip -top-3.5 left-16 w-32 h-6 rotate-2"></div>
+            <div class="washi-tape-strip -top-3.5 right-20 w-28 h-6 -rotate-3 bg-pink-200/90"></div>
+
+            <!-- Header Row -->
+            <div class="flex flex-col md:flex-row md:items-start justify-between mb-10 pb-4 border-b border-rose-100">
+              <div>
+                <div class="flex items-center gap-2">
+                  <h2 class="text-4xl sm:text-5xl text-crimson-ink font-bold script-title">Our Journey</h2>
+                  <span class="font-hand text-4xl text-rose-600">♡</span>
+                </div>
+                <p class="font-hand text-2xl text-rose-800 mt-1">The moments that brought us here.</p>
+              </div>
+
+              <div class="mt-4 md:mt-0 text-right font-hand text-crimson-ink -rotate-2 select-none">
+                <div class="flex items-center justify-end gap-1 text-rose-500">
+                  <span class="text-lg">⤹</span>
+                  <span class="text-2xl sm:text-3xl font-bold">Chapter one of many ♡</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vertical Timeline Track with Milestone Cards (Populated by app.js) -->
+            <div class="relative max-w-3xl mx-auto py-2">
+              <div class="absolute left-6 sm:left-8 top-3 bottom-6 w-0.5 bg-gradient-to-b from-crimson-ink via-rose-400 to-rose-300"></div>
+              
+              <div id="timeline-milestones-container">
+                <!-- Milestones dynamically injected from config.js -->
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- SECTION 3: GALLERY ("Our Gallery ♡")                      -->
+        <!-- ======================================================== -->
+        <section id="gallery-section" class="relative scroll-mt-20">
+          <div class="torn-deckle p-8 sm:p-12 lg:p-16 border border-rose-200/80 relative">
+            <div class="washi-tape-strip -top-3.5 left-1/3 w-36 h-6 -rotate-1"></div>
+
+            <!-- Header & Filter Pills -->
+            <div class="text-center max-w-2xl mx-auto mb-8 relative">
+              <div class="flex items-center justify-center gap-2">
+                <h2 class="text-4xl sm:text-5xl text-crimson-ink font-bold script-title">Our Gallery</h2>
+                <span class="font-hand text-4xl text-rose-600">♡</span>
+              </div>
+              <p class="font-hand text-2xl text-rose-800 mt-1">
+                A few of the memories that made this year unforgettable.
+              </p>
+
+              <!-- Category Filter Pills -->
+              <div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+                <button type="button" class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-bold bg-[#d43d63] text-white shadow-sm transition-all cursor-pointer" data-category="all">
+                  All ♡
+                </button>
+                <button type="button" class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all cursor-pointer" data-category="dates">
+                  Dates
+                </button>
+                <button type="button" class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all cursor-pointer" data-category="trips">
+                  Trips
+                </button>
+                <button type="button" class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all cursor-pointer" data-category="everyday">
+                  Everyday
+                </button>
+                <button type="button" class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all cursor-pointer" data-category="random">
+                  Random
+                </button>
+              </div>
+            </div>
+
+            <!-- Polaroid Grid Container (Populated by app.js) -->
+            <div id="gallery-grid-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 items-start">
+              <!-- Dynamically populated from config.js -->
+            </div>
+
+          </div>
+        </section>
+
+        <!-- ======================================================== -->
+        <!-- SECTION 4: LETTER ("A Letter For You ♡")                  -->
+        <!-- ======================================================== -->
+        <section id="letter-section" class="relative scroll-mt-20">
+          <div class="torn-deckle p-8 sm:p-14 md:p-20 border border-rose-200/90 relative bg-[#fffdf9] shadow-2xl max-w-4xl mx-auto">
+            
+            <!-- Top washi tape strips -->
+            <div class="washi-tape-strip -top-3.5 left-1/4 w-36 h-7 -rotate-2"></div>
+            <div class="washi-tape-strip -top-3.5 right-1/4 w-36 h-7 rotate-1 bg-pink-300/80"></div>
+
+            <!-- Header -->
+            <div class="text-center mb-10 pb-6 border-b border-rose-200/60">
+              <div class="inline-flex items-center gap-2">
+                <h2 class="text-4xl sm:text-5xl md:text-6xl text-crimson-ink font-bold script-title">
+                  A Letter For You
+                </h2>
+                <span class="font-hand text-4xl text-rose-600">♡</span>
+              </div>
+              <p class="font-hand text-xl sm:text-2xl text-rose-700/90 mt-1">
+                Read when you need a reminder of how cherished you are.
+              </p>
+            </div>
+
+            <!-- Authentic Handwritten Cursive Letter Body -->
+            <article id="letter-content-container" class="relative z-10 max-w-2xl mx-auto space-y-6 text-rose-950 font-hand text-2xl sm:text-3xl leading-relaxed tracking-wide">
+              <!-- Dynamically populated from config.js -->
+            </article>
+
+            <!-- Bottom 3D Wax Seal Stamp -->
+            <div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-rose-100">
+              <div class="flex items-center gap-2 text-rose-600 text-sm font-hand font-bold">
+                <span>♡ With all my love, always</span>
+              </div>
+
+              <!-- 3D Wax Seal -->
+              <div class="w-16 h-16 wax-seal-3d flex items-center justify-center text-white/90 text-2xl font-hand font-bold shadow-xl rotate-6">
+                ♡
+              </div>
+            </div>
+
+          </div>
+
+          <footer class="text-center py-10 text-rose-900/80 font-hand text-xl">
+            <p>Made with all my heart for our first 365 days & counting ♡</p>
+          </footer>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- ========================================================================================= -->
+  <!-- POLAROID LIGHTBOX MODAL                                                                   -->
+  <!-- ========================================================================================= -->
+  <div id="polaroid-lightbox-modal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4" onclick="app.closeLightbox()">
+    <div class="polaroid-frame relative p-4 pb-8 rounded bg-white max-w-lg w-full border border-pink-200 shadow-2xl" onclick="event.stopPropagation()">
+      <button type="button" class="absolute -top-3 -right-3 w-8 h-8 bg-crimson-ink text-white rounded-full flex items-center justify-center text-sm font-bold shadow-md cursor-pointer hover:bg-rose-700" onclick="app.closeLightbox()">✕</button>
+      <div class="washi-tape-strip -top-3.5 left-1/3 w-32 h-6 -rotate-2"></div>
+      
+      <div class="aspect-square sm:aspect-[4/3] overflow-hidden rounded bg-rose-50 mb-4">
+        <img id="lightbox-image" src="" alt="Photo preview" class="w-full h-full object-cover">
+      </div>
+
+      <div class="text-center space-y-1">
+        <h3 id="lightbox-title" class="font-serif text-2xl font-bold text-crimson-ink"></h3>
+        <p id="lightbox-date" class="font-mono text-xs text-rose-500 font-semibold"></p>
+        <p id="lightbox-caption" class="font-hand text-2xl text-rose-900 pt-2"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Dev State Switcher (Allows instant testing of all stages) -->
+  <aside aria-label="Dev State Switcher" class="fixed bottom-3 right-3 z-50 bg-neutral-950/90 border border-neutral-700/80 text-[11px] font-mono p-1.5 rounded-lg shadow-2xl flex items-center gap-1.5 backdrop-blur-md">
+    <span class="text-neutral-500 px-1 font-bold">DEV:</span>
+    <button type="button" class="px-2 py-1 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 hover:border-neutral-600 transition-colors cursor-pointer" onclick="app.switchStage(1)">Stage 1</button>
+    <button type="button" class="px-2 py-1 rounded bg-neutral-900 hover:bg-neutral-800 text-neutral-300 border border-neutral-800 hover:border-neutral-600 transition-colors cursor-pointer" onclick="app.switchStage(2)">Stage 2</button>
+    <button type="button" class="px-2 py-1 rounded bg-red-950/70 hover:bg-red-900 text-red-300 border border-red-800 transition-colors cursor-pointer" onclick="app.switchStage('denied')">Test Denied</button>
+    <button type="button" class="px-2 py-1 rounded bg-pink-950/80 hover:bg-pink-900 text-pink-200 border border-pink-700 transition-colors cursor-pointer" onclick="app.switchStage(3)">Stage 3</button>
+  </aside>
+
+  <!-- Application Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/eye-tracker.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

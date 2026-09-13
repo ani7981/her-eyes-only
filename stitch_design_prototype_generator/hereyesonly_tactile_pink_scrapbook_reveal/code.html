@@ -1,0 +1,643 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style="width: 1280px; height: 5416px; overflow: hidden; position: relative;"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Our Journey ♡ | 365 Days of Us</title>
+<!-- Google Fonts: Brush/Calligraphy & Scrapbook Handwriting -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Marck+Script&amp;family=Lora:ital,wght@0,400;0,600;1,400&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Shadows+Into+Light&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'rose-craft': '#f3bcc8',
+          'craft-bg': '#f0a8b9',
+          'paper-sheet': '#fffbf5',
+          'crimson-ink': '#9e1c3a',
+          'crimson-deep': '#80132b',
+          'rose-accent': '#d43d63',
+          'washi-pink': 'rgba(244, 143, 177, 0.72)',
+          'washi-tape-solid': '#f7b2c4',
+        },
+        fontFamily: {
+          hand: ['Caveat', 'cursive'],
+          script: ['"Marck Script"', 'cursive'],
+          reenie: ['"Reenie Beanie"', 'cursive'],
+          doodle: ['"Shadows Into Light"', 'cursive'],
+          serif: ['"Playfair Display"', 'serif'],
+          bodySerif: ['Lora', 'serif'],
+        }
+      }
+    }
+  }
+</script>
+<style data-purpose="scrapbook-textures-and-effects">
+  /* Rich layered distressed pink craft texture */
+  body {
+    background-color: #ebb0be;
+    background-image: 
+      radial-gradient(circle at 10% 20%, rgba(255, 235, 240, 0.35) 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, rgba(220, 120, 145, 0.3) 0%, transparent 50%),
+      radial-gradient(rgba(175, 70, 95, 0.12) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 18px 18px;
+    background-attachment: fixed;
+  }
+
+  /* Authentic torn paper deckle edges */
+  .torn-deckle {
+    position: relative;
+    background-color: #fffaf2;
+    clip-path: polygon(
+      0% 1.2%, 1.5% 0.3%, 3.5% 1.1%, 5.5% 0.2%, 8% 1.4%, 11% 0.4%, 14% 1.2%, 17% 0.1%, 20% 1.3%, 23% 0.5%,
+      27% 1.4%, 31% 0.2%, 35% 1.5%, 39% 0.4%, 43% 1.3%, 47% 0.1%, 51% 1.4%, 55% 0.3%, 59% 1.5%, 63% 0.2%,
+      67% 1.3%, 71% 0.5%, 75% 1.5%, 79% 0.2%, 83% 1.3%, 87% 0.4%, 91% 1.5%, 94% 0.3%, 97% 1.2%, 100% 0.5%,
+      99.7% 8%, 99.2% 16%, 99.8% 24%, 99.3% 32%, 99.9% 40%, 99.2% 48%, 99.8% 56%, 99.1% 64%, 99.7% 72%, 99.3% 80%, 99.9% 88%, 99.4% 96%, 100% 99.2%,
+      98% 98.7%, 95% 99.8%, 91% 98.9%, 87% 99.7%, 83% 98.6%, 79% 99.8%, 75% 98.8%, 71% 99.7%, 67% 98.9%, 63% 99.9%,
+      59% 98.6%, 55% 99.7%, 51% 98.8%, 47% 99.9%, 43% 98.7%, 39% 99.8%, 35% 98.6%, 31% 99.7%, 27% 98.8%, 23% 99.9%,
+      19% 98.7%, 15% 99.8%, 11% 98.6%, 7% 99.7%, 3% 98.8%, 0% 99.4%,
+      0.6% 92%, 0.1% 84%, 0.8% 76%, 0.2% 68%, 0.7% 60%, 0.1% 52%, 0.8% 44%, 0.3% 36%, 0.9% 28%, 0.2% 20%, 0.7% 12%, 0.2% 4%
+    );
+    box-shadow: 0 16px 35px -8px rgba(120, 20, 45, 0.2), 0 6px 12px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Newspaper scrap underlay */
+  .newspaper-scrap {
+    background-color: #f7eedb;
+    background-image: repeating-linear-gradient(0deg, #e4d7be, #e4d7be 1px, transparent 1px, transparent 7px);
+    font-family: serif;
+    color: rgba(70, 50, 40, 0.55);
+    line-height: 1.1;
+    overflow: hidden;
+    user-select: none;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Translucent washi tape with realistic jagged tape edges */
+  .washi-tape-strip {
+    position: absolute;
+    background: rgba(247, 185, 200, 0.78);
+    border-left: 2px dashed rgba(220, 130, 150, 0.45);
+    border-right: 2px dashed rgba(220, 130, 150, 0.45);
+    box-shadow: 0 2px 5px rgba(100, 20, 40, 0.12);
+    backdrop-filter: blur(1.5px);
+    z-index: 25;
+  }
+
+  /* Realistic 3D wax seal */
+  .wax-seal-3d {
+    background: radial-gradient(circle at 32% 28%, #d93856 0%, #9e1430 65%, #63081a 100%);
+    box-shadow: 
+      inset 0 3px 6px rgba(255, 255, 255, 0.45),
+      inset 0 -4px 6px rgba(0, 0, 0, 0.55),
+      3px 8px 18px rgba(80, 8, 20, 0.45);
+    border-radius: 53% 47% 51% 49% / 48% 52% 48% 52%;
+  }
+
+  /* Polaroid frame */
+  .polaroid-frame {
+    background: #ffffff;
+    box-shadow: 0 14px 28px -4px rgba(90, 15, 30, 0.22), 0 4px 10px rgba(0,0,0,0.06);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  .polaroid-frame:hover {
+    transform: scale(1.03) rotate(0deg) !important;
+    box-shadow: 0 22px 35px -6px rgba(90, 15, 30, 0.3), 0 8px 16px rgba(0,0,0,0.08);
+    z-index: 35 !important;
+  }
+
+  /* Handwritten cursive heading */
+  .script-title {
+    font-family: 'Marck Script', 'Caveat', cursive;
+  }
+
+  /* Subtle floating doodle animation */
+  @keyframes floatHeart {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-6px) rotate(3deg); }
+  }
+  .anim-float {
+    animation: floatHeart 4s ease-in-out infinite;
+  }
+</style>
+</head>
+<body class="text-rose-950 min-h-screen antialiased selection:bg-rose-300 selection:text-rose-950 font-bodySerif">
+<!-- BEGIN: Browser Chrome Header Bar -->
+<!-- END: Browser Chrome Header Bar -->
+<div class="relative max-w-7xl mx-auto flex flex-col md:flex-row min-h-screen">
+<!-- BEGIN: Left Sticky Scrapbook Navigation Sidebar -->
+<aside class="w-full md:w-28 md:sticky md:top-14 md:h-[calc(100vh-3.5rem)] flex md:flex-col items-center justify-center md:justify-start pt-4 md:pt-10 px-3 z-40">
+<nav aria-label="Scrapbook Sections" class="flex md:flex-col items-center gap-3 bg-[#fce4ec]/95 backdrop-blur-md p-2 md:py-6 md:px-2 rounded-3xl border border-rose-200/90 shadow-xl shadow-rose-900/10">
+<!-- Home Link -->
+<a class="group flex flex-col items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-[#e4426b] to-[#b91c44] text-white shadow-md shadow-rose-800/20 transition-all duration-200" href="#home-section">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="text-[10px] font-hand font-bold tracking-wide mt-0.5">Home</span>
+</a>
+<!-- Timeline Link -->
+<a class="group flex flex-col items-center justify-center w-14 h-14 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200" href="#timeline-section">
+<svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Timeline</span>
+</a>
+<!-- Gallery Link -->
+<a class="group flex flex-col items-center justify-center w-14 h-14 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200" href="#gallery-section">
+<svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Gallery</span>
+</a>
+<!-- Letter Link -->
+<a class="group flex flex-col items-center justify-center w-14 h-14 rounded-2xl text-rose-900 hover:bg-rose-200/70 transition-all duration-200" href="#letter-section">
+<svg class="w-5 h-5 text-rose-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"></path>
+</svg>
+<span class="text-[10px] font-hand font-semibold tracking-wide mt-0.5">Letter</span>
+</a>
+<!-- Decorative bottom pin -->
+<div class="hidden md:block w-3 h-3 rounded-full bg-rose-400/80 border border-rose-500/60 mt-1 shadow-inner"></div>
+</nav>
+</aside>
+<!-- END: Left Sticky Navigation Sidebar -->
+<!-- BEGIN: Main Canvas Sections -->
+<main class="flex-1 px-4 sm:px-8 py-6 space-y-24">
+<!-- ======================================================== -->
+<!-- SECTION 1: HOME (JOURNEY OVERVIEW) -->
+<!-- ======================================================== -->
+<section class="relative pt-2" id="home-section"><div class="absolute -top-10 left-1/4 w-48 h-32 newspaper-scrap rotate-6 rounded-sm opacity-70 pointer-events-none p-3 text-[8px] z-0 shadow-md border-b border-stone-300/40"><div class="washi-tape-strip -top-3 left-10 w-20 h-4 bg-pink-300/70 -rotate-3"></div><p class="font-serif uppercase tracking-widest font-bold text-[9px] mb-1 text-rose-950/70">PARIS GAZETTE • SPECIAL</p><p class="leading-tight">"And so two wanderers found each other in the quiet spaces of a loud world. The beginnings of a forever story whispered in morning light..."</p></div><div class="absolute top-1/3 -right-6 w-36 h-40 newspaper-scrap -rotate-12 rounded-sm opacity-65 pointer-events-none p-2.5 text-[8px] z-0 shadow-md hidden sm:block"><div class="washi-tape-strip -top-2.5 right-6 w-16 h-4 bg-[#f8bfce] rotate-2"></div><p class="font-serif italic text-[10px] text-crimson-ink/80 font-bold mb-1">L'Amour Toujours</p><p class="leading-snug">"Every chapter turns gentler, warmer, filled with golden afternoons and unspoken understandings."</p></div>
+<!-- Background Collage Layers: Newspaper & Distressed Papers -->
+<div class="absolute -top-4 -left-6 w-36 h-28 newspaper-scrap -rotate-6 rounded-sm opacity-60 pointer-events-none p-2 text-[9px]">
+        THE DAILY ROMANCE • SPECIAL EDITION • CHAPTER 1<br>
+        All memories recorded with endless joy and gentle laughter...
+      </div>
+<div class="absolute -bottom-6 right-10 w-44 h-20 newspaper-scrap rotate-3 rounded-sm opacity-50 pointer-events-none p-2 text-[8px]">
+        EVERYDAY MOMENTS • 365 DAYS RECORD<br>
+        The story that keeps unfolding every single morning...
+      </div>
+<!-- Scattered Crayon Doodle Hearts -->
+<div class="absolute -top-3 right-1/4 text-rose-600/60 font-hand text-3xl select-none anim-float">♡</div>
+<div class="absolute top-1/2 left-2 text-rose-500/50 font-hand text-4xl select-none -rotate-12">♡</div>
+<div class="absolute -bottom-4 right-1/3 text-rose-600/70 font-hand text-2xl select-none">♡</div>
+<!-- Large Center Torn Craft Paper Sheet -->
+<div class="torn-deckle p-8 sm:p-12 lg:p-14 border border-rose-200/80 relative overflow-visible">
+<!-- Top washi tape center -->
+<div class="washi-tape-strip -top-3.5 left-1/3 w-32 h-6 -rotate-1"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+<!-- Left Content Column -->
+<div class="lg:col-span-7 space-y-6 text-center lg:text-left z-10">
+<!-- Headline: "365 Days of Us ♡" in deep crimson brushed calligraphy -->
+<div class="relative inline-block">
+<h1 class="text-6xl sm:text-7xl md:text-8xl text-crimson-ink font-bold tracking-tight leading-none script-title">
+                365 Days
+                <span class="block text-5xl sm:text-6xl md:text-7xl text-crimson-deep mt-1">
+                  of Us <span class="text-rose-600 inline-block font-hand -rotate-6">♡</span>
+</span>
+</h1>
+</div>
+<!-- Subtitle note -->
+<p class="font-hand text-2xl sm:text-3xl text-rose-900/90 leading-snug">
+              One year down. Still my favorite story.
+            </p>
+<!-- Counter Card: Torn rectangular card with washi tape -->
+<div class="relative inline-block bg-[#fffdfa] border border-rose-200/90 rounded-xl p-5 sm:p-6 shadow-md -rotate-1 hover:rotate-0 transition-transform">
+<div class="washi-tape-strip -top-3 right-4 w-20 h-5 rotate-3 bg-[#f8bfce]"></div>
+<div class="flex items-center justify-center gap-5 sm:gap-7 text-center">
+<div>
+<span class="font-serif text-4xl sm:text-5xl font-bold text-crimson-ink block leading-none">365</span>
+<span class="font-hand text-sm sm:text-base text-rose-700 font-semibold mt-1 block">days</span>
+</div>
+<div class="w-px h-10 bg-rose-200"></div>
+<div>
+<span class="font-serif text-4xl sm:text-5xl font-bold text-crimson-ink block leading-none">4</span>
+<span class="font-hand text-sm sm:text-base text-rose-700 font-semibold mt-1 block">hours</span>
+</div>
+<div class="w-px h-10 bg-rose-200"></div>
+<div>
+<span class="font-serif text-4xl sm:text-5xl font-bold text-crimson-ink block leading-none">12</span>
+<span class="font-hand text-sm sm:text-base text-rose-700 font-semibold mt-1 block">minutes</span>
+</div>
+</div>
+<!-- "together ♡" cursive label -->
+<div class="text-center mt-3 pt-2 border-t border-rose-100">
+<span class="font-hand text-2xl text-rose-600 font-bold tracking-wide">together ♡</span>
+</div>
+</div>
+<!-- Pressed Botanical Twig Illustration (Left lower accent) -->
+<div class="hidden sm:flex items-center gap-2 pt-2 text-rose-700/60 text-xs font-hand">
+<svg class="w-5 h-8 text-rose-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 40">
+<path d="M12 38 C 12 25, 10 15, 12 2"></path>
+<circle cx="8" cy="8" fill="#f8bbd0" r="3"></circle>
+<circle cx="16" cy="14" fill="#f8bbd0" r="3"></circle>
+<circle cx="7" cy="22" fill="#f8bbd0" r="3"></circle>
+</svg>
+<span class="">handcrafted with love</span>
+</div>
+</div>
+<!-- Right Column: Big Tilted Polaroid Photo with Washi Tape & Notes -->
+<div class="lg:col-span-5 flex justify-center relative"><div class="absolute -bottom-8 -left-6 sm:-left-10 w-44 h-28 newspaper-scrap -rotate-6 rounded-sm opacity-85 pointer-events-none p-2.5 text-[8px] z-0 shadow-lg border border-stone-300/60"><div class="washi-tape-strip -top-2.5 left-4 w-16 h-4 bg-pink-300/80 rotate-3"></div><span class="font-serif font-bold uppercase tracking-wider block mb-0.5 text-crimson-ink/90">ARCHIVE NOTE 01</span><p class="leading-tight">Moments preserved under golden hour sunlight. Memories etched in eternal tenderness and soft laughter.</p></div><div class="absolute -top-12 -left-4 w-28 h-40 pointer-events-none z-30 opacity-80 rotate-12 hidden sm:block"><svg fill="none" stroke="#9e1c3a" stroke-width="1.2" viewBox="0 0 70 120"><path d="M35 110 Q 30 70 38 20"></path><path d="M34 85 Q 18 68 12 55"></path><circle cx="12" cy="55" fill="#fce4ec" r="3.5" stroke="#d43d63"></circle><path d="M36 65 Q 52 50 58 35"></path><circle cx="58" cy="35" fill="#fce4ec" r="3" stroke="#d43d63"></circle><circle cx="38" cy="20" fill="#fce4ec" r="4" stroke="#d43d63"></circle><path d="M22 45 Q 15 35 18 25"></path><circle cx="18" cy="25" fill="#f8bbd0" r="2.5" stroke="#9e1c3a"></circle><path d="M48 40 Q 56 30 50 20"></path><circle cx="50" cy="20" fill="#f8bbd0" r="2.5" stroke="#9e1c3a"></circle></svg></div><div class="absolute -bottom-10 right-2 z-20 bg-[#fff4f6] border border-rose-300 rounded-lg p-3 shadow-md -rotate-6 max-w-[190px] font-hand text-crimson-ink text-sm leading-tight select-none"><div class="washi-tape-strip -top-2 left-6 w-12 h-4 bg-[#f8bfce] -rotate-2"></div>"Not just 365 days... but a lifetime to go ♡"</div>
+<!-- Pinned Sticky Note at Top-Right -->
+<div class="absolute -top-8 -right-2 sm:-right-4 z-30 bg-[#fff5f7] border border-rose-300 rounded-lg p-3 shadow-md rotate-6 max-w-[170px] text-center font-hand text-rose-900 text-sm leading-tight">
+<div class="washi-tape-strip -top-2 left-6 w-12 h-4 -rotate-3"></div>
+              Year one / and many more to come
+            </div>
+<!-- Main Rotating Polaroid Card -->
+<div class="polaroid-frame relative p-4 pb-7 rounded-sm rotate-3 max-w-xs sm:max-w-sm w-full border border-stone-200">
+<!-- Top corner layered translucent washi tape strips -->
+<div class="washi-tape-strip -top-3.5 left-10 w-24 h-6 -rotate-2"></div>
+<div class="washi-tape-strip -top-2 right-8 w-16 h-5 rotate-6 bg-pink-300/60"></div>
+<!-- Polaroid Couple Photo -->
+<div class="aspect-[4/5] overflow-hidden bg-rose-100 relative rounded-xs">
+<img alt="Couple sharing a romantic moment together at golden hour sunset" class="w-full h-full object-cover filter contrast-[1.04] brightness-[0.98]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDts8Xipc0dvShbKoWskE8NFNefCizu8bzz6jUlDka9GiLAFxQ1NqGtobIZdQ9SkJt-etJcCai5UvawbKVC55Z_Vo8zNQlWAMD_Tvk3EEcpGf2IMiIm0WrF7_MbfwozbKu91Gxt62FYWnlrZEygQyPXctfKT6dctthtpA3B3QrN0DIPHkbs2FG02NuUFo9db_uKzN6gQba3DEYQUi9nJZA2XUZUkC4ijl3LzA4sxpg2-YuII1rd_z3jKQ">
+</div>
+<!-- Bottom Polaroid handwritten captions -->
+<div class="mt-3 text-center">
+<p class="font-hand text-2xl text-rose-900 font-bold leading-tight">Sunset at the cliffs — our favorite evening</p>
+<p class="font-mono text-[10px] text-rose-400 uppercase tracking-widest mt-0.5">OUR VERY FIRST SUNSET</p>
+</div>
+<!-- Round craft postage stamp at bottom-right "YOU + ME" -->
+<div class="absolute -bottom-5 -right-4 w-16 h-16 rounded-full border-2 border-dashed border-crimson-ink bg-[#fff3f6] flex flex-col items-center justify-center text-crimson-ink font-hand text-xs font-bold rotate-12 shadow-md">
+<span class="">YOU</span>
+<span class="text-[10px] leading-none">+</span>
+<span class="">ME</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- SECTION 2: TIMELINE ("Our Journey ♡") -->
+<!-- ======================================================== -->
+<section class="relative scroll-mt-20" id="timeline-section"><div class="absolute -top-8 right-16 w-52 h-28 newspaper-scrap rotate-3 rounded-sm opacity-75 pointer-events-none p-3 text-[8px] z-0 shadow-md"><div class="washi-tape-strip -top-3 left-12 w-20 h-4 bg-pink-200/90 -rotate-2"></div><p class="font-serif font-bold text-[9px] uppercase tracking-wide text-rose-950/80 mb-0.5">CHRONICLES OF US • VOL. I</p><p class="leading-tight">"Distance dissolved, hours flew by like gentle breezes, and every destination turned sacred because you were beside me."</p></div><div class="absolute -bottom-8 left-12 w-44 h-32 newspaper-scrap -rotate-6 rounded-sm opacity-70 pointer-events-none p-2.5 text-[8px] z-0 shadow-md hidden md:block"><div class="washi-tape-strip -top-2.5 left-6 w-16 h-4 bg-[#f8bfce] rotate-3"></div><p class="font-serif italic font-bold text-[9px] text-crimson-ink/80 mb-1">Sweet Keepsake</p><p class="leading-snug">"Held hands through city streets, winding mountain trails, quiet diner booths, and late night kitchen dances."</p></div>
+<!-- Section Decorative Paper Sheet -->
+<div class="torn-deckle p-8 sm:p-12 lg:p-16 border border-rose-200/80 relative">
+<!-- Top washi tape strips -->
+<div class="washi-tape-strip -top-3.5 left-16 w-28 h-6 rotate-2"></div>
+<div class="washi-tape-strip -top-3.5 right-20 w-24 h-6 -rotate-3 bg-pink-200/90"></div>
+<!-- Header Row -->
+<div class="flex flex-col md:flex-row md:items-start justify-between mb-10 pb-4 border-b border-rose-100">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-4xl sm:text-5xl text-crimson-ink font-bold script-title">Our Journey</h2>
+<span class="font-hand text-4xl text-rose-600">♡</span>
+</div>
+<p class="font-hand text-2xl text-rose-800 mt-1">The moments that brought us here.</p>
+</div>
+<!-- Top-right handwritten note & sketch arrows -->
+<div class="mt-4 md:mt-0 text-right font-hand text-crimson-ink -rotate-2 select-none">
+<div class="flex items-center justify-end gap-1 text-rose-500">
+<span class="text-lg">⤹</span>
+<span class="text-2xl sm:text-3xl font-bold">Chapter one of many ♡</span>
+</div>
+<div class="text-xs text-rose-400 mr-4">more chapters waiting...</div>
+</div>
+</div>
+<!-- Vertical Timeline with Track -->
+<div class="relative max-w-3xl mx-auto py-2"><!-- Crimson vertical timeline spine line -->
+<div class="absolute left-6 sm:left-8 top-3 bottom-6 w-0.5 bg-gradient-to-b from-crimson-ink via-rose-400 to-rose-300"></div>
+<!-- Milestone 01: First Date -->
+<div class="relative flex items-start gap-5 sm:gap-8 mb-10 group">
+<!-- Pin Badge -->
+<div class="w-12 sm:w-16 flex items-center justify-center flex-shrink-0 z-10">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-crimson-ink flex items-center justify-center text-crimson-ink shadow-md font-hand font-bold text-sm group-hover:scale-110 transition-transform">
+      01
+    </div>
+</div>
+<!-- Visual Scrapbook Polaroid Card -->
+<div class="flex-1 bg-white p-4 sm:p-5 rounded-xl border border-rose-200/80 shadow-md hover:shadow-lg transition-all relative overflow-visible">
+<!-- Decorative Washi Tape -->
+<div class="washi-tape-strip -top-3 right-8 w-20 h-5 rotate-2 bg-pink-300/80"></div>
+<div class="flex items-baseline justify-between border-b border-rose-100 pb-2 mb-3">
+<h3 class="font-serif text-xl sm:text-2xl font-bold text-crimson-ink">First Date</h3>
+<span class="font-mono text-xs text-rose-500 font-semibold px-2.5 py-0.5 rounded-full bg-rose-50 border border-rose-200/60">12 Mar 2024</span>
+</div>
+<!-- Prominent Photo Preview -->
+<div class="absolute -right-4 -bottom-3 z-20 bg-[#fff3f6] border border-rose-200 rounded px-2.5 py-1 text-xs font-hand text-crimson-ink font-bold rotate-6 shadow-sm select-none"><span class="text-rose-500 mr-1">★</span>Best first coffee ever</div><div class="aspect-[16/9] sm:aspect-[2/1] rounded-lg overflow-hidden bg-rose-50 border border-rose-100 relative group-hover:scale-[1.01] transition-transform duration-300 shadow-inner">
+<img alt="First date romantic moment by the warm sea" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6fvGqXxN0ahtrQNJAoLlbLoRO-8Ygs3xKR_NzW8E8bjMiqd50dS883pNPGlnLNJyifAVYpqPCOSbgLxqhn6Xj6HdSzeltjvMF420r3UwRkWefh23gEHny_vZFoX0icwRrTUlzmTV93uGGjZoeT1-geSJ9qZ5V0GngH4fVe3hwCwldY4yKtZnlvHhXSeVWSPKq6dio4Dq08QaxTjNSe7QFFct07dvGwoJrUHSUZAi8-mvUKH8yvQprVw">
+</div>
+<!-- Single Concise Handwritten Caption -->
+<div class="mt-3 flex items-center justify-between text-left">
+<p class="font-hand text-xl sm:text-2xl text-rose-900 font-bold leading-tight">"A quick coffee that turned into five hours."</p>
+<span class="hidden sm:inline-block font-hand text-xs text-rose-400 font-semibold">#whereitallbegan</span>
+</div>
+</div>
+</div>
+<!-- Milestone 02: First Trip -->
+<div class="relative flex items-start gap-5 sm:gap-8 mb-10 group">
+<div class="w-12 sm:w-16 flex items-center justify-center flex-shrink-0 z-10">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-crimson-ink flex items-center justify-center text-crimson-ink shadow-md font-hand font-bold text-sm group-hover:scale-110 transition-transform">
+      02
+    </div>
+</div>
+<div class="flex-1 bg-white p-4 sm:p-5 rounded-xl border border-rose-200/80 shadow-md hover:shadow-lg transition-all relative overflow-visible"><div class="absolute -top-7 -right-3 w-16 h-24 pointer-events-none z-20 opacity-75 rotate-45 hidden sm:block"><svg fill="none" stroke="#9e1c3a" stroke-width="1.3" viewBox="0 0 50 80"><path d="M25 75 Q 22 45 25 10"></path><circle cx="25" cy="10" fill="#f8bbd0" r="4" stroke="#9e1c3a"></circle><path d="M24 35 Q 12 28 10 18"></path><circle cx="10" cy="18" fill="#fce4ec" r="3" stroke="#d43d63"></circle><path d="M25 48 Q 38 40 42 30"></path><circle cx="42" cy="30" fill="#fce4ec" r="3" stroke="#d43d63"></circle></svg></div>
+<div class="washi-tape-strip -top-3 left-8 w-20 h-5 -rotate-2 bg-[#f8bfce]"></div>
+<div class="flex items-baseline justify-between border-b border-rose-100 pb-2 mb-3">
+<h3 class="font-serif text-xl sm:text-2xl font-bold text-crimson-ink">First Road Trip</h3>
+<span class="font-mono text-xs text-rose-500 font-semibold px-2.5 py-0.5 rounded-full bg-rose-50 border border-rose-200/60">28 Apr 2024</span>
+</div>
+<div class="absolute -right-4 -bottom-3 z-20 bg-[#fff3f6] border border-rose-200 rounded px-2.5 py-1 text-xs font-hand text-crimson-ink font-bold rotate-6 shadow-sm select-none"><span class="text-rose-500 mr-1">★</span>Best first coffee ever</div><div class="aspect-[16/9] sm:aspect-[2/1] rounded-lg overflow-hidden bg-rose-50 border border-rose-100 relative group-hover:scale-[1.01] transition-transform duration-300 shadow-inner">
+<img alt="First road trip together in the mountains" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpMOAObF66eE2jFE6Nuijy_4v_Y-Ut-gnIr-DjpuZDhMWaA6LIJiqmMatcsOwUns3Z0J8cl5auCZfXjt5JeJVcwBFMHac-at0Mo6ThrX80Xp19uLcQ-0uSm6U-7kyyNjPP9c17qzDwtyHvQ6mFU_GMEHsPiSMzDy6dn0eekJwBIYWH4Rqw2ZQZPpe1wLXWI89bvNcy7qORLQBwXp1rAX33HKytvNIOfT3r56YUV7YVEPbY--QbAMZhew">
+</div>
+<div class="mt-3 flex items-center justify-between text-left">
+<p class="font-hand text-xl sm:text-2xl text-rose-900 font-bold leading-tight">"Getting lost on back roads and finding the prettiest view."</p>
+<span class="hidden sm:inline-block font-hand text-xs text-rose-400 font-semibold">#mountainmemories</span>
+</div>
+</div>
+</div>
+<!-- Milestone 03: 6 Months -->
+<div class="relative flex items-start gap-5 sm:gap-8 mb-10 group">
+<div class="w-12 sm:w-16 flex items-center justify-center flex-shrink-0 z-10">
+<div class="w-10 h-10 rounded-full bg-white border-2 border-crimson-ink flex items-center justify-center text-crimson-ink shadow-md font-hand font-bold text-sm group-hover:scale-110 transition-transform">
+      03
+    </div>
+</div>
+<div class="flex-1 bg-white p-4 sm:p-5 rounded-xl border border-rose-200/80 shadow-md hover:shadow-lg transition-all relative overflow-visible">
+<div class="washi-tape-strip -top-3 right-10 w-20 h-5 rotate-1 bg-pink-200/90"></div>
+<div class="flex items-baseline justify-between border-b border-rose-100 pb-2 mb-3">
+<h3 class="font-serif text-xl sm:text-2xl font-bold text-crimson-ink">Half a Year</h3>
+<span class="font-mono text-xs text-rose-500 font-semibold px-2.5 py-0.5 rounded-full bg-rose-50 border border-rose-200/60">12 Sep 2024</span>
+</div>
+<div class="absolute -right-4 -bottom-3 z-20 bg-[#fff3f6] border border-rose-200 rounded px-2.5 py-1 text-xs font-hand text-crimson-ink font-bold rotate-6 shadow-sm select-none"><span class="text-rose-500 mr-1">★</span>Best first coffee ever</div><div class="aspect-[16/9] sm:aspect-[2/1] rounded-lg overflow-hidden bg-rose-50 border border-rose-100 relative group-hover:scale-[1.01] transition-transform duration-300 shadow-inner">
+<img alt="Holding hands close up with matching bracelets" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJ60S9mvB6JGEx6eq7vT-TEA_arvtOiqc53LpXUZ1ox0LJZnEsioo8MQjBcDU6ZWw1Ep8lGD_xukOJWdhczgdR0ocSnIKXr_PuKPcDmtzHuEwtksWI7k2zpR_OnRUDAe3CtSsmqJPs6Mnul_Kd7hU0IxnfM1aE-T19xyYEr1bS_M7B1IXUSqJFUHyDRIFn--rSypJPpZnf1VBuOa9Rh9-0ZIdXzC0A6-725Ie8hZ46SRv727y0vdWhEQ">
+</div>
+<div class="mt-3 flex items-center justify-between text-left">
+<p class="font-hand text-xl sm:text-2xl text-rose-900 font-bold leading-tight">"Realizing that anywhere feels like home with you."</p>
+<span class="hidden sm:inline-block font-hand text-xs text-rose-400 font-semibold">#halfayear</span>
+</div>
+</div>
+</div>
+<!-- Milestone 04: 1 Year Today -->
+<div class="relative flex items-start gap-5 sm:gap-8 group">
+<div class="w-12 sm:w-16 flex items-center justify-center flex-shrink-0 z-10">
+<div class="w-10 h-10 rounded-full bg-crimson-ink border-2 border-white flex items-center justify-center text-white shadow-lg font-hand font-bold text-sm ring-4 ring-rose-200 group-hover:scale-110 transition-transform">
+      04
+    </div>
+</div>
+<div class="flex-1 bg-gradient-to-r from-rose-50/70 to-white p-4 sm:p-5 rounded-xl border-2 border-rose-300 shadow-lg hover:shadow-xl transition-all relative overflow-visible">
+<div class="washi-tape-strip -top-3 left-10 w-24 h-5 -rotate-2 bg-[#d43d63] text-white flex items-center justify-center text-[10px] font-mono tracking-widest uppercase">
+      ★ 365 DAYS ★
+    </div>
+<div class="flex items-baseline justify-between border-b border-rose-200 pb-2 mb-3 mt-1">
+<div class="flex items-center gap-2">
+<h3 class="font-serif text-xl sm:text-2xl font-bold text-crimson-ink">1 Year Today</h3>
+<span class="text-[10px] uppercase font-mono px-2 py-0.5 rounded-full bg-crimson-ink text-white">milestone</span>
+</div>
+<span class="font-mono text-xs text-crimson-ink font-bold px-2.5 py-0.5 rounded-full bg-rose-100/90 border border-rose-300">10 Jan 2025</span>
+</div>
+<div class="absolute -right-4 -bottom-3 z-20 bg-[#fff3f6] border border-rose-200 rounded px-2.5 py-1 text-xs font-hand text-crimson-ink font-bold rotate-6 shadow-sm select-none"><span class="text-rose-500 mr-1">★</span>Best first coffee ever</div><div class="aspect-[16/9] sm:aspect-[2/1] rounded-lg overflow-hidden border border-rose-200 relative group-hover:scale-[1.01] transition-transform duration-300 shadow-inner">
+<img alt="Romantic sunset silhouette celebrating 1 year" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0p_mnrErcjQlkL0KuI1mCLGsClEYeBZNlconqP_P2LzU2Dx5yUooQyHZMtNBScJ4enl0XyWbsF-NRgtTnl9CfxXcfcYTQ19ZF3_1nqsuKjRdvIoOiFUfpco8nn_P_O6WOktAlgwuIL2y8b-x6-KbJcMNyg3mTTjJ4NKHxe4IzzsNzA7TlyCNkFxhuk4d_yR_b6a4cmNMOKZ72W3DgXxuSWFVUPRByUrtMs2Vz0sUD0JQui9XTVBE1hw">
+</div>
+<div class="mt-3 flex items-center justify-between text-left">
+<p class="font-hand text-xl sm:text-2xl text-crimson-deep font-bold leading-tight">"365 days together, and still falling more in love every morning."</p>
+<span class="hidden sm:inline-block font-hand text-xs text-crimson-ink font-bold">#foreverbegins ♡</span>
+</div>
+</div>
+</div></div>
+<!-- Decorative dried chamomile/rose stem on bottom-right (SVG) -->
+<div class="absolute right-6 bottom-4 w-16 h-28 pointer-events-none opacity-40 hidden sm:block">
+<svg fill="none" stroke="#9e1c3a" stroke-width="1.2" viewBox="0 0 50 100">
+<path d="M25 95 Q 20 60 30 20 Q 35 45 42 30"></path>
+<circle cx="30" cy="18" fill="#f8bbd0" r="5"></circle>
+<circle cx="42" cy="28" fill="#f8bbd0" r="4"></circle>
+<circle cx="16" cy="40" fill="#f8bbd0" r="3.5"></circle>
+</svg>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- SECTION 3: GALLERY ("Our Gallery ♡") -->
+<!-- ======================================================== -->
+<section class="relative scroll-mt-20" id="gallery-section"><div class="absolute -top-8 left-8 w-44 h-28 newspaper-scrap -rotate-3 rounded-sm opacity-75 pointer-events-none p-3 text-[8px] z-0 shadow-md"><div class="washi-tape-strip -top-3 left-8 w-20 h-4 bg-pink-300/80 rotate-2"></div><p class="font-serif font-bold text-[9px] uppercase tracking-wide text-rose-950/80 mb-0.5">SNAPSHOT DISPATCH</p><p class="leading-tight">"A gallery of stolen glances, belly laughs, wind-tousled hair, and sleepy morning grins. Captured forever."</p></div><div class="absolute -bottom-10 right-10 w-48 h-32 newspaper-scrap rotate-6 rounded-sm opacity-70 pointer-events-none p-3 text-[8px] z-0 shadow-md hidden sm:block"><div class="washi-tape-strip -top-2.5 right-8 w-16 h-4 bg-[#f8bfce] -rotate-3"></div><p class="font-serif italic font-bold text-[9px] text-crimson-ink mb-1">The Little Things</p><p class="leading-snug">"Not just the grand vistas, but the shared snacks, the road trip playlists, and cozy silence."</p></div>
+<div class="torn-deckle p-8 sm:p-12 lg:p-16 border border-rose-200/80 relative">
+<div class="washi-tape-strip -top-3.5 left-1/3 w-32 h-6 -rotate-1"></div>
+<!-- Header & Subtitle + Doodle Note -->
+<div class="text-center max-w-2xl mx-auto mb-8 relative">
+<div class="flex items-center justify-center gap-2">
+<h2 class="text-4xl sm:text-5xl text-crimson-ink font-bold script-title">Our Gallery</h2>
+<span class="font-hand text-4xl text-rose-600">♡</span>
+</div>
+<p class="font-hand text-2xl text-rose-800 mt-1">
+            A few of the memories that made this year unforgettable.
+          </p>
+<!-- Top-right hand-drawn doodle -->
+<div class="absolute -top-4 right-0 sm:-right-20 font-hand text-rose-500 text-lg sm:text-xl rotate-6 hidden sm:block select-none">
+<span class="">Our story</span><br>
+<span class="">so far ♡</span>
+</div>
+<!-- Capsule Filter Pills -->
+<div class="flex flex-wrap items-center justify-center gap-2 mt-6">
+<button class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-bold bg-[#d43d63] text-white shadow-sm transition-all" data-category="all" type="button">
+              All ♡
+            </button>
+<button class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all" data-category="dates" type="button">
+              Dates
+            </button>
+<button class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all" data-category="trips" type="button">
+              Trips
+            </button>
+<button class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all" data-category="everyday" type="button">
+              Everyday
+            </button>
+<button class="gallery-filter-btn px-5 py-1.5 rounded-full text-sm font-hand font-semibold bg-rose-100/90 text-crimson-ink hover:bg-rose-200 transition-all" data-category="random" type="button">
+              Random
+            </button>
+</div>
+</div>
+<!-- Organic Scattered Polaroid Cluster -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 items-start">
+<!-- Polaroid 1: Sunset Date -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white -rotate-3 border border-rose-100" data-category="dates"><div class="absolute -bottom-3 -left-3 z-20 bg-[#fff5f7] border border-rose-200 rounded px-2 py-0.5 text-[10px] font-hand font-bold text-crimson-ink -rotate-12 shadow-sm select-none"><span class="text-rose-500">♡</span> my favorite sunset</div>
+<div class="washi-tape-strip -top-3 left-4 w-14 h-4 rotate-2"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Couple watching sunset by the coast" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj16Cr2MrVSsN7d1woTWPwn7FJ5tCAXiCaGwxdizUMC1MU30nL38x8WkFkp447J_tLpHSEZY5wi0d4lsCjajtCdlejxCYgqlp61pyz4d6e0QiDkrj1_5CGeQMLlkWS7KNnZvzTuY6E-cihJjHEXzn8brfn5gIAf-bxNWJH72CSj5-VhPyxLEySQWebwxuilag9hRc5xJc4NlRKDzwifrnMCAE8XIRJrNNFqvlfbsAK_OOLcLgMAxaAwg">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Beach walk at sunset</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">JUNE 2024</span>
+</div>
+<!-- Polaroid 2: Smiling Laughing Selfie -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white rotate-2 border border-rose-100" data-category="everyday">
+<div class="washi-tape-strip -top-3 right-4 w-14 h-4 -rotate-4 bg-pink-300/80"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Candid laughing selfie" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK49oLlM7VT4e9wINBSDohPng3_rBj3VkjxbacmbCnX3bheUWRnJ8aarT8L8y99bnyq00pe9C7sJy9mi_D3WbxYsID5Ptq8KnpR__HRx5v1eorQSYZtWYux3c_u5Tr_G6uoLArs0Id9FyRighY5qOYe4szTeeJDdOibeQuXK2V5xEMW2ElcXe_feyNZZxNDThHO1RefgOsynXi5vlx8YKbWGWGqqWm_NryrcsvvT4l1qf_AkyAdN6Tig">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Your laugh :)</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">MY FAVORITE VIEW</span>
+</div>
+<!-- Polaroid 3: Mountain Lake Trip -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white -rotate-2 border border-rose-100" data-category="trips">
+<div class="washi-tape-strip -top-3 left-6 w-16 h-4 rotate-1"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Mountain lake reflection adventure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFUfrAX2USkNd0VboCyTbBlKrQjC3kf2EqxVxj8SJj1e16MvNFoP7La4LxTb3Rgnhhdni95AtZJop5ODoYd56jwcJ_gFr1RWT41DqyxgcsFqsVHFS1k4NMZFcsp1DsHlzMp-9LotjNG9Dk8J3jx-dzaUCMT3xu2XbS7_ZJIDOOkeJZxLpfYu76dkpOXEI8pt6VMAI_HGpHF3S409utfa3vDQGbPu45-Is8ZfltMFxayYXt-CPdiopDsg">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Mountain hike</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">AUGUST 2024</span>
+</div>
+<!-- Polaroid 4: Holding Hands -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white rotate-3 border border-rose-100" data-category="everyday">
+<div class="washi-tape-strip -top-3 right-5 w-14 h-4 rotate-3 bg-[#f6c2ce]"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Sweet hand in hand close up" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALCQeTvgrgRYGGhUFvr7jDMbfqiYaOav2YT2qUgPU9XI4W660PUojijEyW1nI6DIM8WQB8AoYtDb3wYIUv5KVVgwzEj1NFy_Iycsvgsep04zW9IrUzA_fXzfbtboAOXec7cw0oJhRHUvl2CTwudytRpYnMEyFsl5E86jHvn0vr-N2LyJN4CwmOSYhxvVhPn39rx5Bo1hkUZ437wKuwQH7QqR4fLR1xTB4fNCA-khQyWQDM62I7h00iGg">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Holding hands</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">ANYWHERE WITH YOU</span>
+<div class="absolute -top-3 -right-2 z-20 bg-rose-100/95 border border-rose-300 rounded px-2 py-0.5 text-[9px] font-hand font-bold text-rose-900 rotate-12 shadow-sm select-none">forever &amp; always ♡</div></div>
+<!-- Polaroid 5: Sleepy Cat -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white rotate-1 border border-rose-100" data-category="random">
+<div class="washi-tape-strip -top-3 left-5 w-14 h-4 -rotate-2"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Cute sleepy cat cuddle" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG-G39m4K0n-nHMagDtQf0okegsN1iRaUZAq5Hvp99RCZggrIcg8FhZzJxznEaUPRTzVQbeYNwfe1z6J_cT62mCJMFvFLZ6YckZDltijd9wGDP6OS6hq8BOsSNymsddtgphCXPCx-OyaQ9575oEfIK4VnHurNZ2ba0XK-tsORTXyaznQEuFgenFAuLWoq0iUwHDBNO_ukXW_bGBtigZsw6sRsKhKuE5vhYiMafchlOqGtt3fIC4WuuCQ">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Our unofficial mascot</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">SLEEPY AFTERNOONS</span>
+</div>
+<!-- Polaroid 6: City Rooftop Lights -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white -rotate-3 border border-rose-100" data-category="dates">
+<div class="washi-tape-strip -top-3 right-6 w-14 h-4 rotate-3"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="City lights skyline night date" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVPR0jZt8-TKdEqm4dJYxEH46wFT_XlyNiEzLmBLzOBv8ygUYPrbOAeSA59BxM14-8b7dnShXz88dGFcoMaWHo75jk48Yx-w_oz8pFlBFCSrGn1tYOAOAGtKidGMrcd7uE3T3kf7lRb_BpO2XJKgen9BeIMxuvBB58iI1xNnFMwfJKlivn3j_8rj2RM6n6cQvG808k_J3dyN_MMaFVSukZkA8XDJLON_aZexqiTeSEuQY_blL0OyXDsw">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">City lights rooftop</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">CITY SPARKS</span>
+</div>
+<!-- Polaroid 7: Carnival Ferris Wheel -->
+<div class="gallery-item polaroid-frame p-3 pb-5 rounded bg-white rotate-3 border border-rose-100" data-category="trips">
+<div class="washi-tape-strip -top-3 left-6 w-14 h-4 -rotate-3 bg-pink-300/80"></div>
+<div class="aspect-square overflow-hidden bg-rose-50 mb-2 rounded-xs">
+<img alt="Ferris wheel lights at the evening fair" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAO4wW-Rwu6VvQ1sPp5MdkggO2_R7NR5MIdGwAFttXCIBl0XiFIV5v60uao250ps0-9PNnOHFr7Yycj8CUw0klRHJYu-PS8EfudFAaPNuau_J_k1Ozko-6GrfkkRRanMNlOAnlnszs1pmmz3ZY_3tUxZ4Kr37u8FJRDgQv9ohlEI8CPGx4OfAM04-O2xykqwS8tIanHhQwCv9-BQqmnyPdhfIi03BtDRuB1ev3yGnZUrN-J3IOBnlxRw">
+</div>
+<p class="font-hand text-lg text-center text-rose-900 font-bold">Boardwalk Ferris wheel</p>
+<span class="block text-center font-mono text-[9px] text-rose-400">COTTON CANDY &amp; YOU</span>
+</div>
+<!-- Sticky Note Memo Card -->
+<div class="gallery-item relative bg-[#fff4f6] p-6 rounded-2xl shadow-sm border-2 border-dashed border-rose-300 flex flex-col items-center justify-center text-center -rotate-2 self-stretch" data-category="all">
+<div class="washi-tape-strip -top-3 left-1/4 w-16 h-5 rotate-2 bg-[#f8bfce]"></div>
+<span class="text-rose-500 font-hand text-3xl mb-1">♡</span>
+<p class="font-hand text-2xl text-crimson-ink font-bold">"To all the small, unscripted moments in between the milestones. Here's to us."</p>
+<p class="font-hand text-base text-rose-700 mt-2">More pages to fill tomorrow and forever.</p>
+<div class="mt-4 pt-3 border-t border-rose-200 w-full flex justify-around text-xs font-hand text-rose-500 font-bold">
+<span class="">You + Me</span>
+<span class="">•</span>
+<span class="">Always ♡</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- SECTION 4: LETTER ("A Letter For You ♡") -->
+<!-- ======================================================== -->
+<section class="relative scroll-mt-20" id="letter-section">
+<!-- Vintage book page & botanical collage underlay -->
+<div class="absolute -top-6 -left-4 w-40 h-32 newspaper-scrap -rotate-6 opacity-60 pointer-events-none p-3 text-[8px] hidden md:block">
+        CHAPTER 365: THE FIRST YEAR<br>
+        Every single day brought new wonder, softer conversations, deeper gratitude...
+      </div>
+<div class="absolute -bottom-8 -right-4 w-48 h-36 newspaper-scrap rotate-6 opacity-50 pointer-events-none p-3 text-[8px] hidden md:block">
+        NOTES ON LOVE &amp; LIFETIMES<br>
+        "I knew from the moment you smiled..."
+      </div>
+<!-- Main Deckled Parchment Sheet -->
+<div class="torn-deckle p-8 sm:p-14 md:p-20 border border-rose-200/90 relative bg-[#fffdf9] shadow-2xl max-w-4xl mx-auto"><div class="absolute -left-6 bottom-16 w-20 h-40 pointer-events-none z-20 opacity-70 -rotate-12 hidden md:block"><svg fill="none" stroke="#80132b" stroke-width="1.2" viewBox="0 0 60 120"><path d="M30 110 Q 32 70 28 15"></path><path d="M29 85 Q 40 75 48 65"></path><circle cx="48" cy="65" fill="#f8bbd0" r="3" stroke="#80132b"></circle><path d="M29 65 Q 18 55 12 45"></path><circle cx="12" cy="45" fill="#fce4ec" r="3" stroke="#d43d63"></circle><path d="M29 45 Q 38 35 44 25"></path><circle cx="44" cy="25" fill="#f8bbd0" r="3.5" stroke="#80132b"></circle><circle cx="28" cy="15" fill="#f8bfce" r="4" stroke="#80132b"></circle></svg></div>
+<!-- Top washi tape strips -->
+<div class="washi-tape-strip -top-3.5 left-1/4 w-36 h-7 -rotate-2"></div>
+<div class="washi-tape-strip -top-3.5 right-1/4 w-36 h-7 rotate-1 bg-pink-300/80"></div>
+<!-- Left Dried Flowers Stem (SVG Botanical) -->
+<div class="absolute left-6 top-1/3 w-16 h-48 pointer-events-none opacity-50 -rotate-6 hidden md:block">
+<svg fill="none" stroke="#80132b" stroke-width="1.3" viewBox="0 0 50 140">
+<path d="M25 135 C 25 90, 20 50, 28 10"></path>
+<circle cx="28" cy="10" fill="#f8bbd0" r="7"></circle>
+<circle cx="16" cy="30" fill="#f8bbd0" r="5"></circle>
+<circle cx="38" cy="45" fill="#f8bbd0" r="5"></circle>
+<path d="M25 60 Q 12 50, 10 65"></path>
+<path d="M25 90 Q 38 80, 40 95"></path>
+</svg>
+</div>
+<!-- Right Hand-drawn Crayon Hearts -->
+<div class="absolute top-10 right-10 text-crimson-ink/40 font-hand text-5xl select-none rotate-12">♡</div>
+<!-- Header -->
+<div class="text-center mb-10 pb-6 border-b border-rose-200/60">
+<div class="inline-flex items-center gap-2">
+<h2 class="text-4xl sm:text-5xl md:text-6xl text-crimson-ink font-bold script-title">
+              A Letter For You
+            </h2>
+<span class="font-hand text-4xl text-rose-600">♡</span>
+</div>
+<p class="font-hand text-xl sm:text-2xl text-rose-700/90 mt-1">
+            Read when you need a reminder of how cherished you are.
+          </p>
+</div>
+<!-- Authentic Handwritten Cursive Letter Body -->
+<article class="relative z-10 max-w-2xl mx-auto space-y-6 text-rose-950 font-hand text-2xl sm:text-3xl leading-relaxed tracking-wide">
+<p class="text-3xl sm:text-4xl text-crimson-ink font-bold">
+            Hey,
+          </p>
+<p class="">
+            Looking back on this past year, it's amazing how quickly 365 days went by when having this much fun together.
+          </p>
+<p class="bg-rose-50/70 p-3 rounded-xl border-l-2 border-crimson-ink/40">
+            From our first coffee that ran way too long to all the spontaneous road trips, quiet weekends on the couch, and late-night talks — you've made this year the happiest, easiest year of my life. Thank you for your kindness, your sense of humor, and for always being someone I can completely be myself with.
+          </p>
+<p class="">
+            Happy 1st Anniversary. I'm so lucky to have you by my side.
+          </p>
+<!-- Sign-off -->
+<div class="pt-4">
+<div class="mt-4 flex flex-col items-end mr-4 sm:mr-10">
+<span class="font-hand text-2xl text-rose-900">Always,</span>
+<span class="font-hand text-4xl text-crimson-ink font-bold mt-1">Me</span>
+</div>
+</div>
+</article>
+<!-- Bottom Wax Seal & Stamp Accent Area -->
+<div class="mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-rose-100">
+<div class="flex items-center gap-2 text-rose-600 text-xs font-mono">
+<span class="text-rose-600">♡</span>
+
+</div>
+<!-- Deep 3D Embossed Burgundy Wax Seal Stamp with Heart -->
+
+</div>
+</div>
+</section>
+<!-- Footer Note -->
+<footer class="text-center py-8 text-rose-900/80 font-hand text-xl">
+<p class="">Made with all my heart for our first 365 days &amp; counting ♡</p>
+</footer>
+</main>
+</div>
+<!-- Interactive Logic Scripts -->
+<script data-purpose="gallery-filter-handler">
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-[#d43d63]', 'text-white');
+          b.classList.add('bg-rose-100/90', 'text-crimson-ink');
+        });
+        btn.classList.remove('bg-rose-100/90', 'text-crimson-ink');
+        btn.classList.add('bg-[#d43d63]', 'text-white');
+
+        galleryItems.forEach(item => {
+          const itemCat = item.getAttribute('data-category');
+          if (category === 'all' || itemCat === category || itemCat === 'all') {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+
+
+</body></html>

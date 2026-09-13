@@ -1,0 +1,918 @@
+<!DOCTYPE html><html lang="en" style=""><head></head><body class="bg-black text-slate-100 font-sans antialiased select-none min-h-screen relative overflow-x-hidden"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Her Eyes Only — Clearance Level 1-Year Anniversary</title>
+<!-- Google Fonts: Inter, Share Tech Mono (HUD), Caveat & Dancing Script (Romantic Handwritten), Playfair Display -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&amp;family=Dancing+Script:wght@600;700&amp;family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,400&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS v3 with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration for Custom Palettes & Fonts -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hud: {
+              red: '#ff1a3d',
+              dark: '#08080a',
+              card: '#0e0f14',
+              border: '#2a1117',
+              dim: '#661622'
+            },
+            pastel: {
+              bg: '#f8d7dc',
+              paper: '#fff8f9',
+              card: '#fff1f3',
+              pink: '#e8748d',
+              deepPink: '#b83b5e',
+              burgundy: '#842029',
+              tape: 'rgba(255, 230, 235, 0.72)',
+              kraft: '#f4ede6'
+            }
+          },
+          fontFamily: {
+            mono: ['"Share Tech Mono"', 'monospace'],
+            sans: ['"Inter"', 'sans-serif'],
+            hand: ['"Caveat"', 'cursive'],
+            script: ['"Dancing Script"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+<!-- Custom Styles: HUD Visuals & Animations -->
+<style data-purpose="hud-animations">
+    @keyframes radar-sweep {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes scan-laser {
+      0% { top: 6%; opacity: 0.9; }
+      50% { top: 90%; opacity: 1; }
+      100% { top: 6%; opacity: 0.9; }
+    }
+    @keyframes pulse-red {
+      0%, 100% { box-shadow: 0 0 15px rgba(255, 26, 61, 0.4), inset 0 0 15px rgba(255, 26, 61, 0.2); }
+      50% { box-shadow: 0 0 35px rgba(255, 26, 61, 0.8), inset 0 0 30px rgba(255, 26, 61, 0.4); }
+    }
+    @keyframes pulse-green {
+      0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.6); }
+      50% { box-shadow: 0 0 45px rgba(34, 197, 94, 0.95); }
+    }
+    .crt-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 26, 61, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 26, 61, 0.05) 1px, transparent 1px);
+    }
+    .scan-beam {
+      animation: scan-laser 2.4s ease-in-out infinite;
+    }
+    .reticle-spin {
+      animation: radar-sweep 16s linear infinite;
+    }
+    .hud-glow-red {
+      text-shadow: 0 0 10px rgba(255, 26, 61, 0.8), 0 0 20px rgba(255, 26, 61, 0.4);
+    }
+    .hud-box-glow {
+      animation: pulse-red 3s infinite ease-in-out;
+    }
+    .hud-box-success {
+      animation: pulse-green 1.5s infinite ease-in-out;
+    }
+    /* Glitch effect for simulated access denied */
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 2px); }
+      40% { transform: translate(3px, -2px); }
+      60% { transform: translate(-2px, -1px); }
+      80% { transform: translate(2px, 1px); }
+      100% { transform: translate(0); }
+    }
+    .glitching {
+      animation: glitch 0.25s infinite;
+    }
+  </style>
+<!-- Custom Styles: Romantic Scrapbook Details & Paper Aesthetics -->
+<style data-purpose="scrapbook-styling">
+    .scrapbook-bg {
+      background-color: #f7ced5;
+      background-image: 
+        radial-gradient(#f1b3bf 1.2px, transparent 1.2px),
+        radial-gradient(#f8d6dc 1.2px, #f7ced5 1.2px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+    }
+    .torn-edge {
+      filter: drop-shadow(0 4px 6px rgba(184, 59, 94, 0.08));
+      clip-path: polygon(
+        0% 0%, 5% 0.5%, 10% 0%, 15% 0.8%, 20% 0.2%, 25% 0.9%, 30% 0.1%, 35% 0.7%, 
+        40% 0%, 45% 0.8%, 50% 0.2%, 55% 0.9%, 60% 0.1%, 65% 0.7%, 70% 0%, 75% 0.8%, 
+        80% 0.2%, 85% 0.9%, 90% 0.1%, 95% 0.6%, 100% 0%, 
+        100% 100%, 95% 99.4%, 90% 99.9%, 85% 99.2%, 80% 99.8%, 75% 99.1%, 70% 99.9%, 
+        65% 99.3%, 60% 100%, 55% 99.2%, 50% 99.8%, 45% 99.1%, 40% 100%, 35% 99.3%, 
+        30% 99.9%, 25% 99.2%, 20% 99.8%, 15% 99.1%, 10% 100%, 5% 99.4%, 0% 100%
+      );
+    }
+    .washi-tape {
+      background: rgba(255, 230, 235, 0.82);
+      border-left: 2px dashed rgba(232, 116, 141, 0.3);
+      border-right: 2px dashed rgba(232, 116, 141, 0.3);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      backdrop-filter: blur(2px);
+    }
+    .washi-gold {
+      background: rgba(247, 219, 167, 0.82);
+      border-left: 2px dashed rgba(200, 160, 90, 0.3);
+      border-right: 2px dashed rgba(200, 160, 90, 0.3);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .polaroid-shadow {
+      box-shadow: 0 8px 24px -4px rgba(184, 59, 94, 0.18), 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .wax-seal {
+      background: radial-gradient(circle at 35% 35%, #cf3d58, #881c2f);
+      box-shadow: 0 4px 10px rgba(136, 28, 47, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    }
+    /* Floating hearts in background */
+    @keyframes float-heart {
+      0% { transform: translateY(0) rotate(0deg) scale(0.9); opacity: 0; }
+      20% { opacity: 0.6; }
+      80% { opacity: 0.7; }
+      100% { transform: translateY(-120px) rotate(20deg) scale(1.1); opacity: 0; }
+    }
+    .floating-heart {
+      animation: float-heart 5s ease-in-out infinite;
+    }
+    /* Hide scrollbar but keep functional */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+
+<!-- BEGIN: Universal Dev Mode State Switcher Toolbar -->
+<!-- Floating state controller to freely toggle and test all states from the prompt: Lock Screen -> Camera Scan -> Romantic Scrapbook -->
+
+<!-- END: Universal Dev Mode State Switcher Toolbar -->
+<!-- ========================================================================================= -->
+<!-- BEGIN: STAGE 1 & 2 - LOCK SCREEN & BIOMETRIC VERIFICATION (SECRET AGENT / RETINAL HUD)   -->
+<!-- ========================================================================================= -->
+<div class="relative min-h-screen w-full flex flex-col items-center justify-center p-4 crt-grid bg-[#070709] transition-opacity duration-700" data-purpose="hud-lockscreen" id="stage-agent-container">
+<!-- Top Left & Right Mock Browser Frame (Matching Reference Image) -->
+
+<!-- Main Spy HUD Card -->
+<div class="relative w-full max-w-5xl bg-neutral-950/90 border rounded-xl p-6 sm:p-10 backdrop-blur-xl overflow-hidden border-emerald-500 shadow-[0_0_80px_rgba(34,197,94,0.4)]" id="hud-main-box">
+<!-- Tech HUD Corner Markers -->
+<div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-red-500"></div>
+<div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-red-500"></div>
+<div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-red-500"></div>
+<div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-red-500"></div>
+<!-- Header Row with Top Secret & Access Restricted Badge -->
+<div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-red-900/40 pb-6 mb-8">
+<div>
+<h1 class="text-2xl sm:text-3xl font-mono font-bold tracking-wider text-red-500 flex items-center gap-3">
+<span class="inline-block w-3 h-3 bg-red-500 rounded-sm animate-pulse"></span>
+            TOP SECRET
+          </h1>
+<p class="text-xs sm:text-sm font-mono tracking-widest text-red-400/90 mt-1 uppercase">
+            CLEARANCE LEVEL — Iris Detection</p>
+
+</div>
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-950/80 border border-emerald-500 rounded-sm text-emerald-400 font-mono text-xs uppercase tracking-wider self-start" id="hud-status-badge">
+<svg class="w-3.5 h-3.5 text-red-400 animate-pulse" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm2 6V6a2 2 0 10-4 0v2h4z" fill-rule="evenodd"></path>
+</svg>
+<span id="badge-text" class="">ACCESS GRANTED</span>
+</div>
+</div>
+<!-- Main Center Section: Telemetry Logs + Retinal Scanner Frame + Status Indicators -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Left Column: Terminal Command Logs -->
+<div class="lg:col-span-3 font-mono text-xs text-neutral-400 space-y-3 order-2 lg:order-1">
+<div class="text-red-500/80 font-bold border-b border-red-950/80 pb-1 flex items-center justify-between">
+<span class="">PROTOCOL_LOG</span>
+
+</div>
+<p class="text-neutral-500">&gt; SYS_INIT: OK</p>
+<p class="text-red-400/90">&gt; INITIATE SCAN</p>
+<p class="text-neutral-400">&gt; ALIGN EYES WITH FRAME</p>
+<p class="text-neutral-500">&gt; AWAIT VERIFICATION</p>
+<div class="text-red-400 pt-2 font-mono text-[11px] leading-relaxed" id="dynamic-log"><span class="text-red-500 font-bold">[ERROR] RETINAL MISMATCH</span><br>Unrecognized biometrics detected.<br>Identity unknown.</div>
+</div>
+<!-- Center Column: Retinal Scanner Viewport -->
+<div class="lg:col-span-6 flex flex-col items-center justify-center relative order-1 lg:order-2">
+<!-- Outer Reticle Target Container -->
+<div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-red-500/30 flex items-center justify-center p-3" id="reticle-container">
+<!-- Corner Brackets around Scanner -->
+<div class="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-red-500 pointer-events-none"></div>
+<div class="absolute -top-3 -right-3 w-8 h-8 border-t-2 border-r-2 border-red-500 pointer-events-none"></div>
+<div class="absolute -bottom-3 -left-3 w-8 h-8 border-b-2 border-l-2 border-red-500 pointer-events-none"></div>
+<div class="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-red-500 pointer-events-none"></div>
+<!-- Rotating Compass Reticle -->
+<div class="absolute inset-2 rounded-full border border-dashed border-red-500/40 reticle-spin pointer-events-none"></div>
+<div class="absolute inset-8 rounded-full border border-red-500/20 pointer-events-none"></div>
+<!-- Crosshairs -->
+<div class="absolute inset-x-0 top-1/2 h-[1px] bg-red-500/30 pointer-events-none"></div>
+<div class="absolute inset-y-0 left-1/2 w-[1px] bg-red-500/30 pointer-events-none"></div>
+<!-- Central Iris / Camera Display Frame -->
+<div class="relative w-52 h-52 sm:w-64 sm:h-64 rounded-full overflow-hidden border-2 border-red-500/80 bg-neutral-900 shadow-inner flex items-center justify-center" id="scanner-core">
+<!-- Stylized Eye Graphic / Retina Iris SVG -->
+<div class="w-full h-full relative flex items-center justify-center transition-transform duration-500 overflow-hidden rounded-full" id="retina-visual"><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtVX1dW5FLSoGkLoydN7nsoJBkuU2LOaYQ7A8CqiFAhTgFII7-UCJ0E08tq1y1t2EV2F7c3qSK44Vtgt5QFUZLN3o_0MtkELU2Ej_IjYX4N2CvhqD75JiUR5eUPBmYltQw6NaGCV6WOi4m1lcT9RLQUKT8sGkeU4vbAjnLjCNH1Y_-cEAec_WtP3DqFHd0tSZvObC_KhGzMpakTw6ddBrK3ou6iY9q8lxgh11hWPIeb-LoJ6XoymheMCJ8-x3E-RcpARkn5emHHwVISLQ" alt="Spy thriller biometric iris eye scanner interface" class="w-full h-full object-cover rounded-full mix-blend-screen opacity-95" style="transform: scale(1.15); transform-origin: center center 0px; object-position: center center;"></div>
+<!-- Animated Laser Scan Bar -->
+<div class="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent scan-beam" id="laser-beam"></div>
+<!-- Success Overlay (Hidden initially) -->
+<div class="absolute inset-0 bg-emerald-950/80 backdrop-blur-sm flex flex-col items-center justify-center opacity-0 transition-opacity duration-300 pointer-events-none" id="scan-success-overlay" style="opacity: 1;">
+<div class="w-16 h-16 rounded-full border-2 border-emerald-400 flex items-center justify-center text-emerald-400 mb-2">
+<svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<span class="font-mono text-xs font-bold text-emerald-300 tracking-wider">MATCH 100%</span>
+</div>
+</div>
+</div>
+<!-- Real-time Telemetry Coordinates -->
+<div class="mt-4 flex items-center gap-4 text-[11px] font-mono text-neutral-400">
+<span class="">RET_MATCH: <span class="text-red-400" id="match-val">99.84%</span></span>
+<span class="">•</span>
+<span class="">PUPIL_LOCK: <span class="text-green-400">ACTIVE</span></span>
+</div>
+</div>
+<!-- Right Column: Security Readouts & Metadata -->
+<div class="lg:col-span-3 font-mono text-xs text-neutral-400 space-y-3 order-3">
+<div class="border border-red-950/80 bg-red-950/20 p-3 rounded space-y-2">
+<div>
+<span class="text-neutral-500 block text-[10px]">SUBJECT ID:</span>
+<span class="text-red-300 font-bold" id="subject-id">HER_EYES_ONLY</span>
+</div>
+<div>
+<span class="text-neutral-500 block text-[10px]">CLEARANCE:</span>
+<span class="text-emerald-300 font-bold" id="clearance-status">FULL_CLEARANCE_LVL1</span>
+</div>
+<div>
+<span class="text-neutral-500 block text-[10px]">STATUS:</span>
+<span class="text-emerald-400 font-bold" id="status-text">GRANTED</span>
+</div>
+
+</div>
+<!-- Denied Alert Box (Shown on failed attempt) -->
+<div class="p-3 bg-red-900/30 border border-red-500/80 rounded text-red-300 text-xs leading-relaxed font-mono" id="denied-alert">
+            ❌ <strong class="text-white">ACCESS DENIED:</strong><br>
+            Nice try, stranger! But you are not the love of his life.
+          </div>
+</div>
+</div>
+<!-- Bottom Interactive Controls & Spy Verification Buttons -->
+<div class="mt-10 pt-6 border-t border-red-950/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="text-xs font-mono text-neutral-500 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-red-500/60 inline-block"></span>
+<span class="">SECURE TERMINAL v1.0.0 // AUTH_BYPASS_OFF</span>
+</div>
+<!-- Verification Action Buttons -->
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<!-- Simulation Test: Access Denied Button -->
+
+<!-- Primary Trigger Button: VERIFY (Matches Reference) -->
+<button class="flex-1 sm:flex-initial px-8 py-2.5 rounded bg-red-950/80 border border-red-500 hover:bg-red-900/90 text-red-200 hover:text-white font-mono text-sm tracking-widest uppercase transition-all duration-300 active:scale-95 flex items-center justify-center gap-2" id="btn-verify" onclick="simulateBiometricScan()" type="button">
+<svg class="w-4 h-4 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 2a4 4 0 00-4 4v2H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-1V6a4 4 0 00-4-4zm2 6V6a2 2 0 10-4 0v2h4z" fill-rule="evenodd"></path>
+</svg>
+<span id="btn-verify-label" class="">SCANNING...</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- END: STAGE 1 & 2 - LOCK SCREEN & BIOMETRIC VERIFICATION -->
+<!-- ========================================================================================= -->
+<!-- BEGIN: STAGE 3 - THE ROMANTIC REVEAL SCRAPBOOK (EXACT MATCH WITH REFERENCE MOCKUPS)       -->
+<!-- ========================================================================================= -->
+<div class="min-h-screen scrapbook-bg text-stone-800 pb-20 hidden" data-purpose="romantic-scrapbook-suite" id="stage-scrapbook-container">
+<!-- Top Romantic Browser App Bar (Matching Reference After Tabs) -->
+
+<!-- Main App Layout with Romantic Sidebar Navigation & Scrapbook Content Views -->
+<div class="max-w-7xl mx-auto px-3 sm:px-6 pt-6 flex flex-col md:flex-row gap-6 items-start">
+<!-- BEGIN: Left Nav Sidebar (Home, Timeline, Gallery, Letter as shown in https://lh3.googleusercontent.com/aida-public/AB6AXuC4aDhnHVCuW_bEYR_OMzyi4lIkXd__0ZAOOjTLAZHz7s1CHH2OznnFl0YxoO0TXC0TNWq2zs_3wQZAhHR28eAL4DxV_t4YvPGRj9TrMhJPHEf-Orps0bWa91S745yEmZ1om9wg4fdfOG9KlqvM4SwwWRZLCIXSDI-q-GZZKeIICA01n-IG2Y0sQ5P6VP2TJcB1M8pQ7S2Wlrb_19IhgIKFyGi0g9g5j7G_PRrkIh-NybPnb-zLKOnIoUg0fGV7EQ8IwVk) -->
+<nav class="w-full md:w-28 flex md:flex-col justify-around md:justify-start gap-3 bg-white/80 backdrop-blur-md p-2 sm:p-3 rounded-2xl border border-pink-200/90 shadow-sm sticky top-16 z-30" data-purpose="scrapbook-nav">
+<!-- Tab 1: Home (Journey Overview) -->
+<button class="nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 bg-pastel-pink text-white shadow-sm w-full" id="tab-home" onclick="showSection('home')">
+<svg class="w-5 h-5 mb-1" fill="currentColor" viewBox="0 0 20 20">
+<path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+</svg>
+<span class="text-xs font-hand text-sm font-semibold">Home</span>
+</button>
+<!-- Tab 2: Timeline -->
+<button class="nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 text-stone-600 hover:bg-pink-100/60 hover:text-pastel-deepPink w-full" id="tab-timeline" onclick="showSection('timeline')">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-hand text-sm font-semibold">Timeline</span>
+</button>
+<!-- Tab 3: Gallery -->
+<button class="nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 text-stone-600 hover:bg-pink-100/60 hover:text-pastel-deepPink w-full" id="tab-gallery" onclick="showSection('gallery')">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-hand text-sm font-semibold">Gallery</span>
+</button>
+<!-- Tab 4: Letter -->
+<button class="nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 text-stone-600 hover:bg-pink-100/60 hover:text-pastel-deepPink w-full" id="tab-letter" onclick="showSection('letter')">
+<svg class="w-5 h-5 mb-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="text-xs font-hand text-sm font-semibold">Letter</span>
+</button>
+</nav>
+<!-- END: Left Nav Sidebar -->
+<!-- BEGIN: Dynamic Content Area Switching Between Views -->
+<main class="flex-1 w-full overflow-hidden">
+<!-- ========================================== -->
+<!-- VIEW 1: HOME (JOURNEY OVERVIEW)            -->
+<!-- ========================================== -->
+<section class="scrapbook-view block space-y-8 animate-fadeIn" id="view-home">
+<!-- Scrapbook Main Torn Canvas -->
+<div class="relative bg-[#fff7f8] rounded-3xl p-6 sm:p-10 border border-pink-200 shadow-xl overflow-hidden">
+<!-- Washi Tape Accents -->
+<div class="washi-tape absolute -top-3 left-16 w-32 h-8 rotate-[-4deg] z-20"></div>
+<div class="washi-tape absolute -top-2 right-24 w-28 h-7 rotate-[3deg] z-20"></div>
+<!-- Decorative Doodle Elements -->
+<div class="absolute top-6 left-6 text-pink-300 text-3xl font-hand select-none pointer-events-none">♡</div>
+<div class="absolute bottom-10 right-8 text-pink-300 text-4xl font-hand select-none pointer-events-none">♡</div>
+<div class="absolute top-1/2 left-4 text-pink-200 text-2xl font-hand select-none pointer-events-none">✧</div>
+<!-- Main Layout Grid: Hero Content + Couple Polaroid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<!-- Hero Left: Scrapbook Torn Note with Bold "365 Days of Us ♡" Title -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Torn Paper Note Backdrop for Headline -->
+<div class="relative bg-white p-6 sm:p-8 rounded-2xl shadow-md border border-rose-100 torn-edge">
+<!-- Handwritten Subtitle & Hearts -->
+<div class="flex items-center gap-2 mb-2">
+<span class="font-hand text-pastel-deepPink text-xl font-bold tracking-wide">Together Forever</span>
+<span class="text-rose-400 font-hand text-2xl">♡ ♡</span>
+</div>
+<!-- Big Bold Script Title matching Mockup -->
+<h1 class="text-4xl sm:text-6xl font-hand font-bold text-[#a82c48] tracking-tight leading-tight">
+                    365 Days <br class="hidden sm:inline">of Us <span class="text-rose-500 font-script">♡</span>
+</h1>
+<!-- Emotional Quote from reference -->
+<p class="font-hand text-2xl sm:text-3xl text-stone-700 mt-4 leading-snug">
+                    “Same chaos. New memories. <br>
+<span class="text-pastel-deepPink">Still you. Always you.</span>”
+                  </p>
+</div>
+<!-- Live Anniversary Counter Card (matching 365 days / 4 hours / 12 minutes together ♡) -->
+<div class="bg-white/95 backdrop-blur-sm border border-pink-200/90 rounded-2xl p-5 shadow-sm relative">
+<!-- Washi accent on timer -->
+<div class="washi-gold absolute -top-3 left-8 w-24 h-6 rotate-[-2deg]"></div>
+<div class="grid grid-cols-3 gap-3 text-center pt-2">
+<div class="border-r border-pink-100 pr-2">
+<span class="font-hand text-4xl sm:text-5xl font-bold text-pastel-deepPink block" id="counter-days">914</span>
+<span class="font-hand text-stone-600 text-lg sm:text-xl">days</span>
+</div>
+<div class="border-r border-pink-100 pr-2">
+<span class="font-hand text-4xl sm:text-5xl font-bold text-pastel-deepPink block" id="counter-hours">19</span>
+<span class="font-hand text-stone-600 text-lg sm:text-xl">hours</span>
+</div>
+<div>
+<span class="font-hand text-4xl sm:text-5xl font-bold text-pastel-deepPink block" id="counter-minutes">21</span>
+<span class="font-hand text-stone-600 text-lg sm:text-xl">minutes</span>
+</div>
+</div>
+<div class="text-center font-hand text-2xl sm:text-3xl text-pastel-deepPink font-semibold mt-3">
+                    together ♡
+                  </div>
+</div>
+</div>
+<!-- Hero Right: Polaroid Photo of Sunset Couple Silhouette with Handwritten Sticky Note -->
+<div class="lg:col-span-5 flex flex-col items-center justify-center">
+<div class="relative group">
+<!-- Pinned Top Washi Tape -->
+<div class="washi-tape absolute -top-4 left-1/2 -translate-x-1/2 w-36 h-7 rotate-[-2deg] z-20"></div>
+<!-- Polaroid Frame -->
+<div class="bg-white p-4 pb-8 rounded-lg polaroid-shadow border border-pink-100/80 rotate-2 group-hover:rotate-0 transition-transform duration-300 w-72 sm:w-80">
+<!-- Sunset Couple Photo Placeholder -->
+<div class="aspect-[4/5] bg-gradient-to-tr from-amber-700 via-rose-900 to-indigo-950 rounded overflow-hidden relative shadow-inner">
+<!-- Stylized Sunset Silhouette Representation -->
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="absolute bottom-6 w-36 h-36 rounded-full bg-amber-400/40 blur-xl"></div>
+<div class="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-black/90 to-transparent"></div>
+<!-- Couple Silhouette Icons -->
+<div class="absolute bottom-2 flex items-end justify-center space-x-2 opacity-90">
+<div class="w-14 h-24 bg-stone-950 rounded-t-full"></div>
+<div class="w-12 h-20 bg-stone-950 rounded-t-full"></div>
+</div>
+</div>
+<span class="absolute top-3 left-3 text-[10px] font-mono tracking-widest text-amber-200/80 uppercase bg-black/40 px-2 py-0.5 rounded backdrop-blur-xs">Golden Hour</span>
+</div>
+<!-- Handwritten Polaroid Bottom Caption -->
+<div class="mt-4 text-center font-hand text-stone-800 text-xl font-bold">
+                      Our sunset in Lisbon ♡
+                    </div>
+</div>
+<!-- Handwritten Pinned Sticky Note from Mockup: "Not just 365 days... but a lifetime to go ♡" -->
+<div class="absolute -bottom-6 -left-6 sm:-left-10 bg-[#fff9db] border border-amber-200/80 p-3.5 rounded-lg shadow-lg rotate-[-6deg] w-48 z-20">
+<div class="washi-tape absolute -top-3 left-4 w-16 h-5 rotate-[4deg]"></div>
+<p class="font-hand text-stone-800 text-lg leading-tight font-semibold">
+                      Not just 365 days... <br>
+                      but a <span class="text-rose-600 font-bold">lifetime</span> to go ♡
+                    </p>
+</div>
+<!-- "YOU + ME" Cute Stamp Badge -->
+<div class="absolute -bottom-8 -right-4 bg-pink-100 border-2 border-dashed border-pastel-pink text-pastel-deepPink p-3 rounded-full font-hand text-lg font-bold rotate-12 shadow-sm">
+                    YOU <br>+ ME
+                  </div>
+</div>
+</div>
+</div>
+<!-- Scrapbook Bottom Quick Links -->
+<div class="mt-12 pt-6 border-t border-pink-200/80 flex flex-wrap items-center justify-between gap-4 text-pastel-deepPink font-hand text-xl">
+<span class="flex items-center gap-1.5">
+<span class="text-rose-400">❀</span> Pressed with gentle memories &amp; eternal laughter.
+              </span>
+<button class="hover:underline flex items-center gap-1 font-bold" onclick="showSection('timeline')">
+                Read our full story timeline →
+              </button>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- VIEW 2: TIMELINE (OUR JOURNEY)             -->
+<!-- ========================================== -->
+<section class="scrapbook-view space-y-6 animate-fadeIn hidden" id="view-timeline">
+<div class="relative bg-[#fff7f8] rounded-3xl p-6 sm:p-10 border border-pink-200 shadow-xl overflow-hidden">
+<!-- Tape & Doodle Accents -->
+<div class="washi-tape absolute -top-2 left-20 w-32 h-7 rotate-[-3deg]"></div>
+<!-- Section Header -->
+<div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 border-b border-pink-200/80 pb-6 mb-8">
+<div>
+<h2 class="text-4xl sm:text-5xl font-hand font-bold text-pastel-deepPink flex items-center gap-2">
+                  Our Journey <span class="text-rose-500">♡</span>
+</h2>
+<p class="font-hand text-2xl text-stone-600 mt-1">
+                  Little moments. Big chapters.
+                </p>
+</div>
+<!-- Decorative "The best is still ahead ♡" Note -->
+<div class="bg-[#fff9e6] px-4 py-2 rounded-xl border border-amber-200 shadow-sm rotate-1 font-hand text-xl text-amber-900 font-semibold self-start">
+                The best is still ahead ♡
+              </div>
+</div>
+<!-- Romantic Timeline Road -->
+<div class="relative pl-6 sm:pl-10 space-y-8 before:absolute before:left-3 sm:before:left-4 before:top-4 before:bottom-4 before:w-0.5 before:bg-gradient-to-b before:from-pink-300 before:via-rose-400 before:to-pink-300">
+<!-- Milestone 1: First Date -->
+<div class="relative group">
+<!-- Timeline Node Heart -->
+<div class="absolute -left-6 sm:-left-10 top-5 w-7 h-7 rounded-full bg-white border-2 border-rose-400 flex items-center justify-center text-rose-500 text-xs shadow-sm group-hover:scale-125 transition-transform">
+                  ♡
+                </div>
+<!-- Card Container -->
+<div class="bg-white p-4 sm:p-5 rounded-2xl border border-pink-100 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row items-center gap-5">
+<div class="w-full sm:w-36 h-28 rounded-xl bg-gradient-to-br from-pink-300 to-rose-400 overflow-hidden relative flex-shrink-0">
+<div class="absolute inset-0 bg-stone-900/30 flex items-center justify-center text-white text-xs font-hand text-lg">
+                      Coffee &amp; Nerves ☕
+                    </div>
+</div>
+<div class="flex-1 text-left">
+<span class="px-2.5 py-0.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-full text-xs font-mono font-bold">12 Mar 2024</span>
+<h3 class="text-2xl font-hand font-bold text-stone-800 mt-1">First Date</h3>
+<p class="font-hand text-xl text-stone-600">The day everything felt different. We talked for 4 hours without checking the time. ♡</p>
+</div>
+</div>
+</div>
+<!-- Milestone 2: First Trip -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-10 top-5 w-7 h-7 rounded-full bg-white border-2 border-rose-400 flex items-center justify-center text-rose-500 text-xs shadow-sm group-hover:scale-125 transition-transform">
+                  ♡
+                </div>
+<div class="bg-white p-4 sm:p-5 rounded-2xl border border-pink-100 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row items-center gap-5">
+<div class="w-full sm:w-36 h-28 rounded-xl bg-gradient-to-br from-emerald-300 to-teal-600 overflow-hidden relative flex-shrink-0">
+<div class="absolute inset-0 bg-stone-900/20 flex items-center justify-center text-white text-xs font-hand text-lg">
+                      Mountain Air 🏔️
+                    </div>
+</div>
+<div class="flex-1 text-left">
+<span class="px-2.5 py-0.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-full text-xs font-mono font-bold">28 Apr 2024</span>
+<h3 class="text-2xl font-hand font-bold text-stone-800 mt-1">First Trip Together</h3>
+<p class="font-hand text-xl text-stone-600">New places, same us. Getting lost on highway turnoffs and singing loud in the car. ♡</p>
+</div>
+</div>
+</div>
+<!-- Milestone 3: 6 Months -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-10 top-5 w-7 h-7 rounded-full bg-white border-2 border-rose-400 flex items-center justify-center text-rose-500 text-xs shadow-sm group-hover:scale-125 transition-transform">
+                  ♡
+                </div>
+<div class="bg-white p-4 sm:p-5 rounded-2xl border border-pink-100 shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row items-center gap-5">
+<div class="w-full sm:w-36 h-28 rounded-xl bg-gradient-to-br from-amber-200 to-pink-400 overflow-hidden relative flex-shrink-0">
+<div class="absolute inset-0 bg-stone-900/20 flex items-center justify-center text-white text-xs font-hand text-lg">
+                      Holding Hands 🤝
+                    </div>
+</div>
+<div class="flex-1 text-left">
+<span class="px-2.5 py-0.5 bg-rose-50 border border-rose-200 text-rose-600 rounded-full text-xs font-mono font-bold">12 Sep 2024</span>
+<h3 class="text-2xl font-hand font-bold text-stone-800 mt-1">6 Months Milestone</h3>
+<p class="font-hand text-xl text-stone-600">Half a year, endless happiness. Learning each other’s little quirks and loving every one. ♡</p>
+</div>
+</div>
+</div>
+<!-- Milestone 4: 1 Year -->
+<div class="relative group">
+<div class="absolute -left-6 sm:-left-10 top-5 w-7 h-7 rounded-full bg-pastel-deepPink border-2 border-rose-400 flex items-center justify-center text-white text-xs shadow-md group-hover:scale-125 transition-transform">
+                  ★
+                </div>
+<div class="bg-[#fff3f5] p-4 sm:p-5 rounded-2xl border-2 border-pink-300 shadow-md flex flex-col sm:flex-row items-center gap-5">
+<div class="w-full sm:w-36 h-28 rounded-xl bg-gradient-to-br from-rose-400 to-pink-600 overflow-hidden relative flex-shrink-0 shadow-inner">
+<div class="absolute inset-0 flex items-center justify-center text-white text-xs font-hand text-xl font-bold">
+                      1 Year Today 🎉
+                    </div>
+</div>
+<div class="flex-1 text-left">
+<span class="px-2.5 py-0.5 bg-pink-200 text-pastel-deepPink rounded-full text-xs font-mono font-bold">10 Jan 2025</span>
+<h3 class="text-2xl font-hand font-bold text-pastel-deepPink mt-1">1 Full Year Of Love</h3>
+<p class="font-hand text-xl text-stone-700">Still choosing you, every single day. Here’s to a million more chapters with you. ♡</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- VIEW 3: GALLERY (POLAROID CLUSTER & CHIPS) -->
+<!-- ========================================== -->
+<section class="scrapbook-view space-y-6 animate-fadeIn hidden" id="view-gallery">
+<div class="relative bg-[#fff7f8] rounded-3xl p-6 sm:p-10 border border-pink-200 shadow-xl overflow-hidden">
+<div class="washi-tape absolute -top-3 right-1/3 w-36 h-7 rotate-[2deg]"></div>
+<!-- Gallery Title & Filter Chips (Matches Reference Mockup) -->
+<div class="text-center max-w-xl mx-auto mb-8">
+<h2 class="text-4xl sm:text-5xl font-hand font-bold text-pastel-deepPink">
+                Our Gallery <span class="text-rose-500">♡</span>
+</h2>
+<p class="font-hand text-2xl text-stone-600 mt-1">
+                Moments we’ll never stop looking back on.
+              </p>
+<!-- Category Filter Chips -->
+<div class="flex flex-wrap items-center justify-center gap-2 mt-5">
+<button class="gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-pastel-deepPink text-white shadow-sm" onclick="filterGallery('all', this)">All</button>
+<button class="gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-white text-stone-600 border border-pink-200 hover:bg-pink-50" onclick="filterGallery('dates', this)">Dates</button>
+<button class="gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-white text-stone-600 border border-pink-200 hover:bg-pink-50" onclick="filterGallery('trips', this)">Trips</button>
+<button class="gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-white text-stone-600 border border-pink-200 hover:bg-pink-50" onclick="filterGallery('everyday', this)">Everyday</button>
+<button class="gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-white text-stone-600 border border-pink-200 hover:bg-pink-50" onclick="filterGallery('random', this)">Random</button>
+</div>
+</div>
+<!-- Scattered Polaroid Mosaic Grid (Golden Hour, mountain trips, smiles, candid cat, ferris wheel) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
+<!-- Item 1: Sunset Silhouette -->
+<div class="gallery-item dates bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[-2deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="washi-tape absolute -top-3 left-1/4 w-20 h-5"></div>
+<div class="aspect-square rounded bg-gradient-to-tr from-amber-600 via-rose-700 to-purple-900 flex items-center justify-center text-amber-100 text-3xl font-hand">
+                  Sunset Kiss 🌅
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">Golden hour magic ♡</div>
+</div>
+<!-- Item 2: Laughing Candid -->
+<div class="gallery-item everyday bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[3deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="washi-tape absolute -top-3 right-1/4 w-20 h-5"></div>
+<div class="aspect-square rounded bg-gradient-to-tr from-pink-300 to-rose-400 flex items-center justify-center text-white text-3xl font-hand">
+                  Silly Laughs 😂
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">Can't stop giggling ♡</div>
+</div>
+<!-- Item 3: Mountain View -->
+<div class="gallery-item trips bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[-1deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="washi-tape absolute -top-3 left-1/3 w-20 h-5"></div>
+<div class="aspect-square rounded bg-gradient-to-tr from-emerald-400 to-cyan-700 flex items-center justify-center text-white text-3xl font-hand">
+                  Lake &amp; Alpine 🌲
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">Our scenic escape ♡</div>
+</div>
+<!-- Item 4: Cozy Kitten & Morning Coffee -->
+<div class="gallery-item random bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[2deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="aspect-square rounded bg-gradient-to-tr from-stone-300 via-stone-400 to-stone-600 flex items-center justify-center text-stone-100 text-3xl font-hand">
+                  Cozy Cat Nap 🐾
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">Sunday morning cuddles ♡</div>
+</div>
+<!-- Item 5: Night City Ferris Wheel -->
+<div class="gallery-item dates bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[-3deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="aspect-square rounded bg-gradient-to-tr from-indigo-900 via-violet-800 to-pink-700 flex items-center justify-center text-pink-200 text-3xl font-hand">
+                  Ferris Wheel 🎡
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">City lights &amp; your smile ♡</div>
+</div>
+<!-- Item 6: Holding Hands -->
+<div class="gallery-item everyday bg-white p-3 pb-6 rounded-lg polaroid-shadow border border-pink-100 rotate-[1deg] hover:rotate-0 hover:scale-105 transition-all duration-300">
+<div class="aspect-square rounded bg-gradient-to-tr from-rose-200 via-pink-300 to-amber-200 flex items-center justify-center text-pastel-deepPink text-3xl font-hand">
+                  Holding Hands 🤍
+                </div>
+<div class="font-hand text-center text-lg text-stone-700 mt-3 font-semibold">Always by my side ♡</div>
+</div>
+</div>
+<!-- Scrapbook Stickers & Post-its -->
+<div class="mt-8 flex flex-wrap items-center justify-around gap-4 pt-4 border-t border-pink-200/80">
+<span class="bg-[#ffe8ed] border border-pink-300 px-4 py-1.5 rounded-full font-hand text-xl text-pastel-deepPink font-bold rotate-[-3deg]">
+                Same girl, new memories ♡
+              </span>
+<span class="bg-[#fff9db] border border-amber-300 px-4 py-1.5 rounded-full font-hand text-xl text-amber-900 font-bold rotate-[2deg]">
+                You + Me = Always
+              </span>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- VIEW 4: LETTER (A LETTER FOR YOU ♡)        -->
+<!-- ========================================== -->
+<section class="scrapbook-view space-y-6 animate-fadeIn hidden" id="view-letter">
+<div class="relative bg-[#fff7f8] rounded-3xl p-6 sm:p-12 border border-pink-200 shadow-xl overflow-hidden flex flex-col items-center">
+<!-- Letter Card with Parchment Style and Deckle-Edge Look -->
+<div class="relative w-full max-w-3xl bg-[#fffcf7] p-8 sm:p-14 rounded-2xl shadow-xl border border-stone-200/90 torn-edge">
+<!-- Pinned Tape on Letter Top -->
+<div class="washi-tape absolute -top-3 left-1/2 -translate-x-1/2 w-40 h-8 rotate-1"></div>
+<!-- Dried Rose Pressed Flower Accent (Top Right) -->
+<div class="absolute top-4 right-6 text-2xl select-none opacity-80" title="Dried Rose Petals">
+                🌹
+              </div>
+<!-- Header Title from Mockup -->
+<h2 class="text-3xl sm:text-5xl font-hand font-bold text-pastel-deepPink text-center sm:text-left mb-6">
+                A Letter For You <span class="text-rose-500 font-script">♡</span>
+</h2>
+<!-- Emotional Letter Text (Directly matching Prompt & Design) -->
+<div class="font-hand text-2xl sm:text-3xl text-stone-800 leading-relaxed space-y-5">
+<p class="">Hey you,</p>
+<p class="">
+                  I don't even know where to start. You came into my life and somehow made everything feel softer, brighter, and so much more real. In just one year, you've become my favourite person, my safe place, my biggest adventure, and my home.
+                </p>
+<p class="">
+                  Here's to more late night talks, silly moments, big dreams, and a thousand more days with you.
+                </p>
+<p class="pt-2 text-pastel-deepPink font-bold">
+                  I love you.
+                </p>
+</div>
+<!-- Letter Footer & Wax Seal Stamp -->
+<div class="mt-10 pt-6 flex items-end justify-between">
+<div>
+<p class="font-hand text-2xl text-stone-500">Always,</p>
+<p class="font-hand text-4xl text-stone-900 font-bold">Me ♡</p>
+</div>
+<!-- Embossed Red Wax Seal Button -->
+<div class="wax-seal w-20 h-20 rounded-full flex items-center justify-center text-white border-2 border-red-900/40 transform hover:scale-105 transition-transform shadow-lg cursor-pointer" title="Anniversary Wax Seal 365">
+<div class="w-14 h-14 rounded-full border border-dashed border-red-200/60 flex flex-col items-center justify-center">
+<span class="text-xs font-serif font-bold tracking-widest uppercase">365</span>
+<span class="text-xs">♡</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- END: Content Area -->
+</div>
+</div>
+<!-- END: STAGE 3 - THE ROMANTIC REVEAL SCRAPBOOK -->
+<!-- ========================================================================================= -->
+<!-- JAVASCRIPT: STAGE CONTROLLERS, BIOMETRIC SCANNER LOGIC, AUDIO-VISUALS, LIVE CLOCK         -->
+<!-- ========================================================================================= -->
+<!-- Script: Stage Navigation & Dev Switcher -->
+<script data-purpose="stage-management">
+    let currentStage = 1;
+
+    function switchStage(stageNum) {
+      currentStage = stageNum;
+      
+      const hudContainer = document.getElementById('stage-agent-container');
+      const scrapbookContainer = document.getElementById('stage-scrapbook-container');
+      const btnState1 = document.getElementById('btn-state-1');
+      const btnState2 = document.getElementById('btn-state-2');
+      const btnState3 = document.getElementById('btn-state-3');
+
+      // Reset buttons styles
+      [btnState1, btnState2, btnState3].forEach((btn, idx) => {
+        if (idx + 1 === stageNum) {
+          btn.className = "px-2.5 py-1 rounded bg-red-950 text-red-200 border border-red-500 font-bold";
+        } else {
+          btn.className = "px-2.5 py-1 rounded bg-neutral-900 text-neutral-400 hover:text-neutral-200 transition-colors";
+        }
+      });
+
+      if (stageNum === 1) {
+        hudContainer.classList.remove('hidden');
+        scrapbookContainer.classList.add('hidden');
+        resetHudTerminal();
+      } else if (stageNum === 2) {
+        hudContainer.classList.remove('hidden');
+        scrapbookContainer.classList.add('hidden');
+        simulateBiometricScan();
+      } else if (stageNum === 3) {
+        triggerUnlockSuccess();
+      }
+    }
+
+    function resetHudTerminal() {
+      const badgeText = document.getElementById('badge-text');
+      const statusText = document.getElementById('status-text');
+      const dynamicLog = document.getElementById('dynamic-log');
+      const overlay = document.getElementById('scan-success-overlay');
+      const deniedAlert = document.getElementById('denied-alert');
+      const hudBox = document.getElementById('hud-main-box');
+
+      badgeText.innerText = "ACCESS RESTRICTED";
+      badgeText.parentElement.className = "inline-flex items-center gap-2 px-3.5 py-1.5 bg-red-950/70 border border-red-500/80 rounded-sm text-red-400 font-mono text-xs uppercase tracking-wider self-start";
+      statusText.innerText = "LOCKED";
+      statusText.className = "text-red-500 font-bold animate-pulse";
+      dynamicLog.innerHTML = "[SYS READY]<br>Scanning array ready.<br>Hold position.";
+      overlay.style.opacity = "0";
+      deniedAlert.classList.add('hidden');
+      hudBox.classList.remove('glitching', 'border-emerald-500', 'shadow-[0_0_80px_rgba(34,197,94,0.4)]');
+      hudBox.classList.add('border-red-900/60');
+    }
+  </script>
+<!-- Script: Biometric Scan Simulation & Access Denied / Success Flows -->
+<script data-purpose="biometric-logic">
+    function simulateDenied() {
+      const deniedAlert = document.getElementById('denied-alert');
+      const hudBox = document.getElementById('hud-main-box');
+      const dynamicLog = document.getElementById('dynamic-log');
+      
+      deniedAlert.classList.remove('hidden');
+      hudBox.classList.add('glitching');
+      dynamicLog.innerHTML = "<span class='text-red-500 font-bold'>[ERROR] RETINAL MISMATCH</span><br>Unrecognized biometrics detected.<br>Identity unknown.";
+
+      setTimeout(() => {
+        hudBox.classList.remove('glitching');
+      }, 700);
+    }
+
+    function simulateBiometricScan() {
+      const btnVerify = document.getElementById('btn-verify-label');
+      const dynamicLog = document.getElementById('dynamic-log');
+      const deniedAlert = document.getElementById('denied-alert');
+      const statusText = document.getElementById('status-text');
+      const clearanceText = document.getElementById('clearance-status');
+      const overlay = document.getElementById('scan-success-overlay');
+      const hudBox = document.getElementById('hud-main-box');
+      const badgeText = document.getElementById('badge-text');
+
+      deniedAlert.classList.add('hidden');
+      btnVerify.innerText = "SCANNING...";
+      dynamicLog.innerHTML = "<span class='text-yellow-400'>&gt; LOCKING RETINA...</span><br>Cross-referencing database...<br>Please look into the lens.";
+      statusText.innerText = "VERIFYING...";
+      statusText.className = "text-yellow-400 font-bold animate-pulse";
+
+      // Progress animation after 1.4s -> SUCCESS
+      setTimeout(() => {
+        dynamicLog.innerHTML = "<span class='text-emerald-400'>&gt; RETINAL PATTERN MATCHED</span><br>Welcome, gorgeous.<br>Decrypting 365 days archive...";
+        statusText.innerText = "GRANTED";
+        statusText.className = "text-emerald-400 font-bold";
+        clearanceText.innerText = "FULL_CLEARANCE_LVL1";
+        clearanceText.className = "text-emerald-300 font-bold";
+        badgeText.innerText = "ACCESS GRANTED";
+        badgeText.parentElement.className = "inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-950/80 border border-emerald-500 rounded-sm text-emerald-400 font-mono text-xs uppercase tracking-wider self-start";
+        overlay.style.opacity = "1";
+        
+        hudBox.classList.remove('border-red-900/60');
+        hudBox.classList.add('border-emerald-500', 'shadow-[0_0_80px_rgba(34,197,94,0.4)]');
+
+        // Transition to Stage 3 Reveal after 1.2s
+        setTimeout(() => {
+          triggerUnlockSuccess();
+        }, 1200);
+
+      }, 1500);
+    }
+
+    function triggerUnlockSuccess() {
+      const hudContainer = document.getElementById('stage-agent-container');
+      const scrapbookContainer = document.getElementById('stage-scrapbook-container');
+      const btnState3 = document.getElementById('btn-state-3');
+      
+      // Update Dev Switcher
+      currentStage = 3;
+      document.getElementById('btn-state-1').className = "px-2.5 py-1 rounded bg-neutral-900 text-neutral-400";
+      document.getElementById('btn-state-2').className = "px-2.5 py-1 rounded bg-neutral-900 text-neutral-400";
+      btnState3.className = "px-2.5 py-1 rounded bg-pink-600 text-white font-bold";
+
+      // Fade out HUD, Fade in Pastel Scrapbook
+      hudContainer.classList.add('hidden');
+      scrapbookContainer.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Spawn celebratory floating sparkle hearts
+      createSparkleHearts();
+    }
+  </script>
+<!-- Script: Scrapbook Tab Switching & Gallery Filtering -->
+<script data-purpose="scrapbook-interaction">
+    function showSection(sectionId) {
+      // Hide all views
+      const views = document.querySelectorAll('.scrapbook-view');
+      views.forEach(view => view.classList.add('hidden'));
+
+      // Show selected
+      const target = document.getElementById('view-' + sectionId);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+
+      // Update active nav button
+      const navTabs = document.querySelectorAll('.nav-tab');
+      navTabs.forEach(tab => {
+        tab.className = "nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 text-stone-600 hover:bg-pink-100/60 hover:text-pastel-deepPink w-full";
+      });
+
+      const activeTab = document.getElementById('tab-' + sectionId);
+      if (activeTab) {
+        activeTab.className = "nav-tab flex flex-col items-center justify-center p-2.5 rounded-xl transition-all duration-200 bg-pastel-pink text-white shadow-sm w-full";
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function filterGallery(category, clickedBtn) {
+      // Style chips
+      const chips = document.querySelectorAll('.gallery-chip');
+      chips.forEach(c => {
+        c.className = "gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-white text-stone-600 border border-pink-200 hover:bg-pink-50";
+      });
+      clickedBtn.className = "gallery-chip px-4 py-1.5 rounded-full text-xs font-hand text-base font-bold bg-pastel-deepPink text-white shadow-sm";
+
+      // Filter gallery items
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    function toggleMusicNote() {
+      createSparkleHearts(8);
+    }
+
+    function createSparkleHearts(count = 15) {
+      const container = document.getElementById('stage-scrapbook-container');
+      const emojis = ['♡', '✨', '🌸', '💖', '🧸'];
+
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.className = "fixed pointer-events-none text-rose-400 font-hand z-50 text-2xl floating-heart";
+        heart.style.left = Math.random() * 90 + 5 + 'vw';
+        heart.style.top = Math.random() * 80 + 10 + 'vh';
+        heart.style.animationDuration = (3 + Math.random() * 2) + 's';
+
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+  </script>
+<!-- Script: Live Ticking Time Together Counter -->
+<script data-purpose="live-anniversary-counter">
+    // Calculate live time starting from Anniversary Base Date: 12 March 2024
+    const startDate = new Date('2024-03-12T19:00:00');
+
+    function updateLiveCounter() {
+      const now = new Date();
+      const diff = Math.max(0, now - startDate);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+      const elDays = document.getElementById('counter-days');
+      const elHours = document.getElementById('counter-hours');
+      const elMinutes = document.getElementById('counter-minutes');
+
+      if (elDays) elDays.innerText = days;
+      if (elHours) elHours.innerText = hours < 10 ? '0' + hours : hours;
+      if (elMinutes) elMinutes.innerText = minutes < 10 ? '0' + minutes : minutes;
+    }
+
+    setInterval(updateLiveCounter, 30000);
+    updateLiveCounter();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
